@@ -8,7 +8,7 @@ import os
 from azure.common.credentials import ServicePrincipalCredentials
 from azure.identity import EnvironmentCredential
 from azure.mgmt.eventhub import EventHubManagementClient
-from azure.mgmt.loganalytics import OperationalInsightsManagementClient
+from azure.mgmt.loganalytics import LogAnalyticsManagementClient
 from azure.mgmt.monitor import MonitorClient
 from azure.mgmt.logic import LogicManagementClient
 from azure.mgmt.resource import ResourceManagementClient
@@ -26,7 +26,7 @@ def main():
 
     SUBSCRIPTION_ID = os.environ.get("SUBSCRIPTION_ID", None)
     GROUP_NAME = "testgroupx"
-    STORAGE_ACCOUNT_NAME = "storagex"
+    STORAGE_ACCOUNT_NAME = "storageaccountxyzxyzxx"
     NAMESPACE = "namespacex"
     EVENTHUB = "eventhub"
     AUTHORIZATION_RULE = "authorizationx"
@@ -52,7 +52,7 @@ def main():
         subscription_id=SUBSCRIPTION_ID
     )
     # use track1 sdk
-    loganalytics_client = OperationalInsightsManagementClient(
+    loganalytics_client = LogAnalyticsManagementClient(
         credentials=credential4track1,
         subscription_id=SUBSCRIPTION_ID
     )
@@ -82,7 +82,7 @@ def main():
     ).result()
 
     # Create eventhub authorization rule
-    eventhub_client.namesapces.begin_create_or_update(
+    eventhub_client.namespaces.begin_create_or_update(
         GROUP_NAME,
         NAMESPACE,
         {
@@ -183,7 +183,7 @@ def main():
     RESOURCE_URI = workflow.id
 
     # Create diagnostic setting
-    diagnostic_setting = monitor_client.create_or_update(
+    diagnostic_setting = monitor_client.diagnostic_settings.create_or_update(
         RESOURCE_URI,
         INSIGHT,
         {
@@ -207,14 +207,14 @@ def main():
     print("Create diagnostic setting:\n{}".format(diagnostic_setting))
 
     # Get diagnostic setting
-    diagnostic_setting = monitor_client.get(
+    diagnostic_setting = monitor_client.diagnostic_settings.get(
         RESOURCE_URI,
         INSIGHT
     )
     print("Get diagnostic setting:\n{}".format(diagnostic_setting))
 
     # Delete diagnostic setting
-    monitor_client.delete(
+    monitor_client.diagnostic_settings.delete(
         RESOURCE_URI,
         INSIGHT
     )
