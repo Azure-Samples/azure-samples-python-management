@@ -73,6 +73,7 @@ def main():
           "overprovision": True,
           "virtual_machine_profile": {
             "storage_profile": {
+              "image_reference": {
                   "offer": "UbuntuServer",
                   "publisher": "Canonical",
                   "sku": "18.04-LTS",
@@ -165,7 +166,7 @@ def main():
           }
         }
     ).result()
-    print("Update virtual machine scale set:\n{}".vmss)
+    print("Update virtual machine scale set:\n{}".format(vmss))
 
     # Update vmss extension
     extension = compute_client.virtual_machine_scale_set_extensions.begin_update(
