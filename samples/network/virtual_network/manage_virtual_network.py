@@ -1,4 +1,3 @@
-
 # --------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for
@@ -6,7 +5,7 @@
 # --------------------------------------------------------------------------
 import os
 
-from azure.identity import EnvironmentCredential
+from azure.identity import DefaultAzureCredential
 from azure.mgmt.network import NetworkManagementClient
 from azure.mgmt.resource import ResourceManagementClient
 
@@ -15,16 +14,15 @@ def main():
 
     SUBSCRIPTION_ID = os.environ.get("SUBSCRIPTION_ID", None)
     GROUP_NAME = "testgroupx"
-    SUBNET = "subnetxxyyzz"
-    VIRTUAL_NETWORK_NAME = "virtualnetworkxxxyyzz"
+    VIRTUAL_NETWORK_NAME = "virtualnetwork"
 
     # Create client
     resource_client = ResourceManagementClient(
-        credential=EnvironmentCredential(),
+        credential=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID
     )
     network_client = NetworkManagementClient(
-        credential=EnvironmentCredential(),
+        credential=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID
     )
 
@@ -35,7 +33,7 @@ def main():
     )
 
     # Create virtual network
-    network_client.virtual_networks.begin_create_or_update(
+    network = network_client.virtual_networks.begin_create_or_update(
         GROUP_NAME,
         VIRTUAL_NETWORK_NAME,
         {
@@ -47,33 +45,34 @@ def main():
           "location": "eastus"
         }
     ).result()
+    print("Create virtual network:\n{}".format(network))
 
-    # Create subnet
-    subnet = network_client.subnets.begin_create_or_update(
+    # Get virtual network
+    network = network_client.virtual_networks.get(
         GROUP_NAME,
-        VIRTUAL_NETWORK_NAME,
-        SUBNET,
-        {
-          "address_prefix": "10.0.0.0/24"
-        }
-    ).result()
-    print("Create subnet:\n{}".format(subnet))
-
-    # Get subnet
-    subnet = network_client.subnets.get(
-        GROUP_NAME,
-        VIRTUAL_NETWORK_NAME,
-        SUBNET
+        VIRTUAL_NETWORK_NAME
     )
-    print("Get subnet:\n{}".format(subnet))
-    
-    # Delete subnet
-    subnet = network_client.subnets.begin_delete(
+    print("Get virtual network:\n{}".format(network))
+
+    # Update virtual network tags
+    network = network_client.virtual_networks.update_tags(
         GROUP_NAME,
         VIRTUAL_NETWORK_NAME,
-        SUBNET
+        {
+          "tags": {
+            "tag1": "value1",
+            "tag2": "value2"
+          }
+        }
+    )
+    print("Update virtual network tags:\n{}".format(network))
+
+    # Delete virtual network
+    network_client.virtual_networks.begin_delete(
+        GROUP_NAME,
+        VIRTUAL_NETWORK_NAME
     ).result()
-    print("Delete subnet.\n")
+    print("Delete virtual network.\n")
 
     # Delete Group
     resource_client.resource_groups.begin_delete(
@@ -83,4 +82,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

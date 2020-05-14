@@ -5,7 +5,7 @@
 # --------------------------------------------------------------------------
 import os
 
-from azure.identity import EnvironmentCredential
+from azure.identity import DefaultAzureCredential
 from azure.mgmt.network import NetworkManagementClient
 from azure.mgmt.resource import ResourceManagementClient
 
@@ -14,15 +14,15 @@ def main():
 
     SUBSCRIPTION_ID = os.environ.get("SUBSCRIPTION_ID", None)
     GROUP_NAME = "testgroupx"
-    VIRTUAL_NETWORK_NAME = "virtualnetwork"
+    FIREWALL_POLICY = "firewall_policyxxyyzz"
 
     # Create client
     resource_client = ResourceManagementClient(
-        credential=EnvironmentCredential(),
+        credential=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID
     )
     network_client = NetworkManagementClient(
-        credential=EnvironmentCredential(),
+        credential=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID
     )
 
@@ -32,47 +32,33 @@ def main():
         {"location": "eastus"}
     )
 
-    # Create virtual network
-    network = network_client.virtual_networks.begin_create_or_update(
+    # Create firewall policy
+    firewall_policy = network_client.firewall_policies.begin_create_or_update(
         GROUP_NAME,
-        VIRTUAL_NETWORK_NAME,
-        {
-          "address_space": {
-            "address_prefixes": [
-              "10.0.0.0/16"
-            ]
-          },
-          "location": "eastus"
-        }
-    ).result()
-    print("Create virtual network:\n{}".format(network))
-
-    # Get virtual network
-    network = network_client.virtual_networks.get(
-        GROUP_NAME,
-        VIRTUAL_NETWORK_NAME
-    )
-    print("Get virtual network:\n{}".format(network))
-
-    # Update virtual network tags
-    network = network_client.virtual_networks.update_tags(
-        GROUP_NAME,
-        VIRTUAL_NETWORK_NAME,
-        {
+        FIREWALL_POLICY,
+         {
           "tags": {
-            "tag1": "value1",
-            "tag2": "value2"
-          }
+            "key1": "value1"
+          },
+          "location": "West US",
+          "threat_intel_mode": "Alert"
         }
-    )
-    print("Update virtual network tags:\n{}".format(network))
-
-    # Delete virtual network
-    network_client.virtual_networks.begin_delete(
-        GROUP_NAME,
-        VIRTUAL_NETWORK_NAME
     ).result()
-    print("Delete virtual network.\n")
+    print("Create firewall policy:\n{}".format(firewall_policy))
+
+    # Get firewall policy
+    firewall_policy = network_client.firewall_policies.get(
+        GROUP_NAME,
+        FIREWALL_POLICY
+    )
+    print("Get firewall policy:\n{}".format(firewall_policy))
+
+    # Delete firewall policy
+    firewall_policy = network_client.firewall_policies.begin_delete(
+        GROUP_NAME,
+        FIREWALL_POLICY
+    ).result()
+    print("Delete firewall policy.\n")
 
     # Delete Group
     resource_client.resource_groups.begin_delete(
