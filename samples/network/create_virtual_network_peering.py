@@ -82,7 +82,7 @@ def main():
         REMOTE_NETWORK_NAME,
         REMOTE_SUBNET,
         {
-          "address_prefix": "10.0.1.0/24"
+          "address_prefix": "10.2.0.0/24"
         }
     ).result()
     # - end -
