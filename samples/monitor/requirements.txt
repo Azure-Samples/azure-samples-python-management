@@ -1,0 +1,6 @@
+azure-identity
+azure-mgmt-compute
+azure-mgmt-monitor
+azure-mgmt-network
+azure-mgmt-resource
+azure-mgmt-storage

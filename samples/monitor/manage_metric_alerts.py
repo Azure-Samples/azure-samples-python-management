@@ -5,7 +5,7 @@
 # --------------------------------------------------------------------------
 import os
 
-from azure.identity import EnvironmentCredential
+from azure.identity import DefaultAzureCredentials
 from azure.mgmt.compute import ComputeManagementClient
 from azure.mgmt.monitor import MonitorClient
 from azure.mgmt.network import NetworkManagementClient
@@ -25,19 +25,19 @@ def main():
 
     # Create client
     resource_client = ResourceManagementClient(
-        credential=EnvironmentCredential(),
+        credential=DefaultAzureCredentials(),
         subscription_id=SUBSCRIPTION_ID
     )
     compute_client = ComputeManagementClient(
-        credential=EnvironmentCredential(),
+        credential=DefaultAzureCredentials(),
         subscription_id=SUBSCRIPTION_ID
     )
     network_client = NetworkManagementClient(
-        credential=EnvironmentCredential(),
+        credential=DefaultAzureCredentials(),
         subscription_id=SUBSCRIPTION_ID
     )
     monitor_client = MonitorClient(
-        credential=EnvironmentCredential(),
+        credential=DefaultAzureCredentials(),
         subscription_id=SUBSCRIPTION_ID
     )
 

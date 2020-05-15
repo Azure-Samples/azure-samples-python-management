@@ -5,7 +5,7 @@
 # --------------------------------------------------------------------------
 import os
 
-from azure.identity import EnvironmentCredential
+from azure.identity import DefaultAzureCredentials
 from azure.mgmt.monitor import MonitorClient
 from azure.mgmt.resource import ResourceManagementClient
 from azure.mgmt.storage import StorageManagementClient
@@ -20,15 +20,15 @@ def main():
 
     # Create client
     resource_client = ResourceManagementClient(
-        credential=EnvironmentCredential(),
+        credential=DefaultAzureCredentials(),
         subscription_id=SUBSCRIPTION_ID
     )
     monitor_client = MonitorClient(
-        credential=EnvironmentCredential(),
+        credential=DefaultAzureCredentials(),
         subscription_id=SUBSCRIPTION_ID
     )
     storage_client = StorageManagementClient(
-        credential=EnvironmentCredential(),
+        credential=DefaultAzureCredentials(),
         subscription_id=SUBSCRIPTION_ID
     )
 
