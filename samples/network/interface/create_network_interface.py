@@ -1,4 +1,3 @@
-
 # --------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for
@@ -9,9 +8,6 @@ import os
 from azure.identity import DefaultAzureCredential
 from azure.mgmt.network import NetworkManagementClient
 from azure.mgmt.resource import ResourceManagementClient
-
-# - other dependence -
-# - end -
 
 
 def main():
@@ -137,4 +133,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

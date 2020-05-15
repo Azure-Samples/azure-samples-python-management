@@ -9,9 +9,6 @@ from azure.identity import DefaultAzureCredential
 from azure.mgmt.network import NetworkManagementClient
 from azure.mgmt.resource import ResourceManagementClient
 
-# - other dependence -
-# - end -
-
 
 def main():
 
@@ -80,7 +77,7 @@ def main():
     ).result()
 
     # Create virtual network gateway
-    virtual_network_gateway = network_client.virtual_network_gateways.begin_create_or_update(
+    network_client.virtual_network_gateways.begin_create_or_update(
         GROUP_NAME,
         VIRTUAL_NETWORK_GATEWAY,
         {
@@ -120,7 +117,7 @@ def main():
     ).result()
 
     # Create local network gateway
-    local_network_gateway = network_client.local_network_gateways.begin_create_or_update(
+    network_client.local_network_gateways.begin_create_or_update(
         GROUP_NAME,
         LOCAL_NETWORK_GATEWAY,
         {
