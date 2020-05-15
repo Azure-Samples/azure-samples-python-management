@@ -16,8 +16,8 @@ These samples will show you how to manage reosurces in compute sdk.
 
 This project framework provides examples for the following services:
 
-### Network  []
-* Using the **Management Compute SDK** [azure-mgmt-network](https://pypi.org/project/azure-mgmt-compute/) for the [Azure Compute API](https://docs.microsoft.com/en-us/rest/api/compute/)
+### Compute
+* Using the **Management Compute SDK** [azure-mgmt-compute](https://pypi.org/project/azure-mgmt-compute/) for the [Azure Compute API](https://docs.microsoft.com/en-us/rest/api/compute/)
 
 ## Getting Started
 
