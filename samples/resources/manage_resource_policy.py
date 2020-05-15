@@ -5,7 +5,7 @@
 # --------------------------------------------------------------------------
 import os
 
-from azure.identity import EnvironmentCredential
+from azure.identity import DefaultAzureCredentials
 from azure.mgmt.resource import PolicyClient, ResourceManagementClient
 
 
@@ -19,11 +19,11 @@ def main():
 
     # Create client
     policy_client = PolicyClient(
-        credential=EnvironmentCredential(),
+        credential=DefaultAzureCredentials(),
         subscription_id=SUBSCRIPTION_ID
     )
     resource_client = ResourceManagementClient(
-        credential=EnvironmentCredential(),
+        credential=DefaultAzureCredentials(),
         subscription_id=SUBSCRIPTION_ID
     )
 

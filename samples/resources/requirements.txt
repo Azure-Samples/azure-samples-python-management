@@ -1,0 +1,2 @@
+azure-identity
+azure-mgmt-resource
