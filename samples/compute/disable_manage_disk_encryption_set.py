@@ -6,20 +6,12 @@
 import os
 from dateutil import parser as date_parse
 
-from azure.common.credentials import ServicePrincipalCredentials
-from azure.identity import EnvironmentCredential
+from azure.identity import DefaultAzureCredentials
 from azure.keyvault.keys import KeyClient
 from azure.mgmt.compute import ComputeManagementClient
 from azure.mgmt.keyvault import KeyVaultManagementClient
 from azure.mgmt.resource import ResourceManagementClient
 
-
-# Cerdential for track1 sdk
-credential4track1 = ServicePrincipalCredentials(
-    client_id=os.environ.get("AZURE_CLIENT_ID"),
-    secret=os.environ.get("AZURE_CLIENT_SECRET"),
-    tenant=os.environ.get("AZURE_TENANT_ID")
-)
 
 def main():
 
@@ -31,16 +23,15 @@ def main():
 
     # Create client
     resource_client = ResourceManagementClient(
-        credential=EnvironmentCredential(),
+        credential=DefaultAzureCredentials(),
         subscription_id=SUBSCRIPTION_ID
     )
     compute_client = ComputeManagementClient(
-        credential=EnvironmentCredential(),
+        credential=DefaultAzureCredentials(),
         subscription_id=SUBSCRIPTION_ID
     )
-    # track 1 sdk
     keyvault_client = KeyVaultManagementClient(
-        credentials=credential4track1,
+        credentials=DefaultAzureCredentials(),
         subscription_id=SUBSCRIPTION_ID
     )
 
@@ -92,7 +83,7 @@ def main():
         }
     ).result()
 
-    key_client = KeyClient(vault.properties.vault_uri, EnvironmentCredential())
+    key_client = KeyClient(vault.properties.vault_uri, DefaultAzureCredentials())
     
     expires_on = date_parse.parse("2050-02-02T08:00:00.000Z")
 
