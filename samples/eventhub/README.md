@@ -16,8 +16,9 @@ These samples will show you how to manage reosurces in eventhub sdk.
 
 This project framework provides examples for the following services:
 
-### Network  []
+### Eventhub
 * [] Using the **Management Eventhub SDK** [azure-mgmt-eventhub](https://pypi.org/project/azure-mgmt-eventhub/) for the [Eventhub API](https://docs.microsoft.com/en-us/rest/api/eventhub/)
+
 ## Getting Started
 
 ### Prerequisites
