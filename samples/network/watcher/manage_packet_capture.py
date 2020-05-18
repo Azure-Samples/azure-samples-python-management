@@ -25,6 +25,8 @@ def main():
     SUBNET_NAME = "subnetxxx"
     NIC_NAME = "interfacexxx"
     VM_EXTENSION_NAME = "extensionxxx"
+    STORAGE_ACCOUNT_NAME = "storageaccountxxxy"
+    NETWORK_WATCHER_NAME = "networkwatcher"
 
     # Create client
     resource_client = ResourceManagementClient(
@@ -111,19 +113,7 @@ def main():
               },
               "name": "myVMosdisk",
               "create_option": "FromImage"
-            },
-            "data_disks": [
-              {
-                "disk_size_gb": "1023",
-                "create_option": "Empty",
-                "lun": "0"
-              },
-              {
-                "disk_size_gb": "1023",
-                "create_option": "Empty",
-                "lun": "1"
-              }
-            ]
+            }
           },
           "os_profile": {
             "admin_username": "testuser",
@@ -147,7 +137,7 @@ def main():
     ).result()
 
     # Create vm extension
-    compute_client.virtual_machine_extensions.create_or_update(
+    compute_client.virtual_machine_extensions.begin_create_or_update(
         GROUP_NAME,
         VIRTUAL_MACHINE_NAME,
         VM_EXTENSION_NAME,
@@ -155,10 +145,10 @@ def main():
           "location": "eastus",
           "auto_upgrade_minor_version": True,
           "publisher": "Microsoft.Azure.NetworkWatcher",
-          "virtual_machine_extension_type": "NetworkWatcherAgentWindows",
+          "type_properties_type": "NetworkWatcherAgentWindows",  # TODO: something needs to be fix in compute sdk
           "type_handler_version": "1.4",
         }
-    )
+    ).result()
 
     # Create storage account
     storage_client.storage_accounts.begin_create(
@@ -174,7 +164,7 @@ def main():
     ).result()
 
     # Create network watcher
-    network_client.network_wathcers.create_or_update(
+    network_client.network_watchers.create_or_update(
         GROUP_NAME,
         NETWORK_WATCHER_NAME,
         {

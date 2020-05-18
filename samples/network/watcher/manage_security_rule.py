@@ -47,8 +47,8 @@ def main():
     # Create security rule
     security_rule = network_client.security_rules.begin_create_or_update(
         GROUP_NAME,
-        SECURITY_RULE,
         NETWORK_SECURITY_GROUP,
+        SECURITY_RULE,
         {
           "protocol": "*",
           "source_address_prefix": "10.0.0.0/8",
