@@ -17,6 +17,7 @@ def main():
     PUBLIC_IP_PREFIX = "public_ip_prefixxxyyzz"
 
     # Create client
+    # For other authentication approaches, please see: https://pypi.org/project/azure-identity/
     resource_client = ResourceManagementClient(
         credential=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID

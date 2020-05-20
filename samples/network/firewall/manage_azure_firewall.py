@@ -20,6 +20,7 @@ def main():
     FIREWALL_POLICY_NAME = "firewallpolicy"
 
     # Create client
+    # For other authentication approaches, please see: https://pypi.org/project/azure-identity/
     resource_client = ResourceManagementClient(
         credential=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID

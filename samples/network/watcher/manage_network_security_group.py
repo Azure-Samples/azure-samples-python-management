@@ -17,6 +17,7 @@ def main():
     NETWORK_SECURITY_GROUP = "network_security_groupxxyyzz"
 
     # Create client
+    # For other authentication approaches, please see: https://pypi.org/project/azure-identity/
     resource_client = ResourceManagementClient(
         credential=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID

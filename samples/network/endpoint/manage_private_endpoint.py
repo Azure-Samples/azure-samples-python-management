@@ -10,9 +10,6 @@ from azure.identity import DefaultAzureCredential
 from azure.mgmt.network import NetworkManagementClient
 from azure.mgmt.resource import ResourceManagementClient
 
-# - other dependence -
-# - end -
-
 
 def main():
 
@@ -27,6 +24,7 @@ def main():
     SUBNET_2 = "subnetxxxz"
 
     # Create client
+    # For other authentication approaches, please see: https://pypi.org/project/azure-identity/
     resource_client = ResourceManagementClient(
         credential=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID
@@ -35,8 +33,6 @@ def main():
         credential=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID
     )
-    # - init depended client -
-    # - end -
 
     # Create resource group
     resource_client.resource_groups.create_or_update(

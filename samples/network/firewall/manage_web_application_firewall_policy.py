@@ -17,6 +17,7 @@ def main():
     WEB_APPLICATION_FIREWALL_POLICY = "web_application_firewall_policyxxyyzz"
 
     # Create client
+    # For other authentication approaches, please see: https://pypi.org/project/azure-identity/
     resource_client = ResourceManagementClient(
         credential=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID

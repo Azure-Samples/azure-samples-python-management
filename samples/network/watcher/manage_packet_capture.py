@@ -4,6 +4,8 @@
 # license information.
 # --------------------------------------------------------------------------
 import os
+import random
+import string
 
 from azure.identity import DefaultAzureCredential
 from azure.mgmt.network import NetworkManagementClient
@@ -28,7 +30,10 @@ def main():
     STORAGE_ACCOUNT_NAME = "storageaccountxxxy"
     NETWORK_WATCHER_NAME = "networkwatcher"
 
+    your_password = ''.join(random.choice(string.ascii_lowercase) for i in range(8))
+
     # Create client
+    # For other authentication approaches, please see: https://pypi.org/project/azure-identity/
     resource_client = ResourceManagementClient(
         credential=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID
@@ -118,7 +123,7 @@ def main():
           "os_profile": {
             "admin_username": "testuser",
             "computer_name": "myVM",
-            "admin_password": "Aa1!zyx_",
+            "admin_password": your_password,
             "windows_configuration": {
               "enable_automatic_updates": True  # need automatic update for reimage
             }

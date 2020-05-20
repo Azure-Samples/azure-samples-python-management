@@ -20,6 +20,7 @@ def main():
     BASTION_SUBNET_NAME = "AzureBastionSubnet"  # must be AzureBastionSubnet
 
     # Create client
+    # For other authentication approaches, please see: https://pypi.org/project/azure-identity/
     resource_client = ResourceManagementClient(
         credential=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID

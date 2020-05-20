@@ -20,6 +20,7 @@ def main():
     EXPRESS_ROUTE_CIRCUIT_PEERING = "AzurePrivatePeering"  # The Express Route Bgp Peering Name must be equal to its PeeringType AzurePrivatePeering
 
     # Create client
+    # For other authentication approaches, please see: https://pypi.org/project/azure-identity/
     resource_client = ResourceManagementClient(
         credential=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID
