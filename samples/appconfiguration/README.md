@@ -4,26 +4,26 @@ languages:
 - python
 products:
 - azure
-description: "These samples will show you how to manage reosurce in appconfiguration sdk."
+description: "These code samples will show you how to manage Appconfiguration using Azure SDK for Python"
 urlFragment: azure-samples-python-management
 ---
 
 # Python Management SDK Samples
 
-These samples will show you how to manage reosurces in appconfiguration sdk.
+These code samples will show you how to manage Appconfiguration using Azure SDK for Python.
 
 ## Features
 
 This project framework provides examples for the following services:
 
 ### Appconfiguration
-* Using the **Management Appconfiguration SDK** [azure-mgmt-Appconfiguration](https://pypi.org/project/azure-mgmt-appconfiguration/) for the [Azure App Configuration API](https://docs.microsoft.com/en-us/rest/api/appconfiguration/)
+* Using the Azure SDK for Python - Appconfiguration Management Library [azure-mgmt-appconfiguration](https://pypi.org/project/azure-mgmt-appconfiguration/) for the [Azure App Configuration API](https://docs.microsoft.com/en-us/rest/api/appconfiguration/)
 
 ## Getting Started
 
 ### Prerequisites
 
-1.  Before we start these samples, we need [register a new application using Azure portal](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal). Then copy the `Subscription ID`, `Application (client) ID`, `Directory (tenant) ID` and create a new application secret to get the secret value.
+1. Before we run the samples, we need to make sure we have setup the credentials. Follow the instructions in [register a new application using Azure portal](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) to obtain `subscription id`,`client id`,`client secret`, and `application id`
 
 2. Put your secret info into environment. The example in linux bash:
 ```bash
@@ -76,6 +76,8 @@ To run the complete demo, execute `python example.py`
 To run each individual demo, point directly to the file. For example (i.e. not complete list):
 
 1. `python manage_app_configuration_store.py`
+
+The sample files do not have dependency each other and each file represents an individual end-to-end scenario. Please look at the sample that contains the scenario you are interested in
 
 ## Resources
 

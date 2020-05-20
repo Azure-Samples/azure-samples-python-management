@@ -17,6 +17,7 @@ def main():
     CONFIG_STORE_NAME = "configstorexyz"
 
     # Create client
+    # For other authentication approaches, please see: https://pypi.org/project/azure-identity/
     appconfig_client = AppConfigurationManagementClient(
         credential=DefaultAzureCredentials(),
         subscription_id=SUBSCRIPTION_ID
