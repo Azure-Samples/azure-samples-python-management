@@ -25,7 +25,8 @@ This project framework provides examples for the following services:
 
 1. Before we run the samples, we need to make sure we have setup the credentials. Follow the instructions in [register a new application using Azure portal](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) to obtain `subscription id`,`client id`,`client secret`, and `application id`
 
-2. Put your secret info into environment. The example in linux bash:
+2. Store your credentials an environment variables.
+For example, in Linux-based OS, you can do
 ```bash
 export AZURE_TENANT_ID="xxx"
 export AZURE_CLIENT_ID="xxx"
