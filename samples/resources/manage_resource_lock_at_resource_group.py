@@ -16,6 +16,7 @@ def main():
     LOCK_NAME = "locktestx"
 
     # Create client
+    # For other authentication approaches, please see: https://pypi.org/project/azure-identity/
     lock_client = ManagementLockClient(
         credential=DefaultAzureCredentials(),
         subscription_id=SUBSCRIPTION_ID

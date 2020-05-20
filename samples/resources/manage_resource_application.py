@@ -18,6 +18,7 @@ def main():
     APPLICATION_NAME = "applicationtest"
 
     # Create client
+    # For other authentication approaches, please see: https://pypi.org/project/azure-identity/
     app_client = ApplicationClient(
         credential=DefaultAzureCredentials(),
         subscription_id=SUBSCRIPTION_ID

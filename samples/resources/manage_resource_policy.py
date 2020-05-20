@@ -18,6 +18,7 @@ def main():
     POLICY_SET_NAME = "policysetdefinition"
 
     # Create client
+    # For other authentication approaches, please see: https://pypi.org/project/azure-identity/
     policy_client = PolicyClient(
         credential=DefaultAzureCredentials(),
         subscription_id=SUBSCRIPTION_ID
