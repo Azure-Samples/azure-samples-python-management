@@ -4,6 +4,8 @@
 # license information.
 # --------------------------------------------------------------------------
 import os
+import random
+import string
 
 from azure.identity import DefaultAzureCredentials
 from azure.mgmt.compute import ComputeManagementClient
@@ -22,7 +24,10 @@ def main():
     VMSS_NAME = "vmssxyz"
     AUTOSCALESETTING_NAME = "autoscalesettingx"
 
+    your_password = ''.join(random.choice(string.ascii_lowercase) for i in range(8))
+
     # Create client
+    # For other authentication approaches, please see: https://pypi.org/project/azure-identity/
     resource_client = ResourceManagementClient(
         credential=DefaultAzureCredentials(),
         subscription_id=SUBSCRIPTION_ID
@@ -112,7 +117,7 @@ def main():
             "os_profile": {
               "computer_name_prefix": "testPC",
               "admin_username": "testuser",
-              "admin_password": "Aa!1()-xyz"
+              "admin_password": your_password
             },
             "network_profile": {
               "network_interface_configurations": [

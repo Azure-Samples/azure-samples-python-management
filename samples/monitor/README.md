@@ -4,28 +4,29 @@ languages:
 - python
 products:
 - azure
-description: "These samples will show you how to manage reosurce in monitor sdk."
+description: "These code samples will show you how to manage Monitor using Azure SDK for Python."
 urlFragment: azure-samples-python-management
 ---
 
 # Python Monitor SDK Samples
 
-These samples will show you how to manage reosurces in monitor sdk.
+These code samples will show you how to manage Monitor using Azure SDK for Python.
 
 ## Features
 
 This project framework provides examples for the following services:
 
 ### Monitor
-* Using the **Management Monitor SDK** [azure-mgmt-monitor](https://pypi.org/project/azure-mgmt-monitor/) for the [Monitor API](https://docs.microsoft.com/en-us/rest/api/monitor/)
+* Using the Azure SDK for Python - Monitor Management Library [azure-mgmt-monitor](https://pypi.org/project/azure-mgmt-monitor/) for the [Monitor API](https://docs.microsoft.com/en-us/rest/api/monitor/)
 
 ## Getting Started
 
 ### Prerequisites
 
-1.  Before we start these samples, we need [register a new application using Azure portal](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal). Then copy the `Subscription ID`, `Application (client) ID`, `Directory (tenant) ID` and create a new application secret to get the secret value.
+1. Before we run the samples, we need to make sure we have setup the credentials. Follow the instructions in [register a new application using Azure portal](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) to obtain `subscription id`,`client id`,`client secret`, and `application id`
 
-2. Put your secret info into environment. The example in linux bash:
+2. Store your credentials an environment variables.
+For example, in Linux-based OS, you can do
 ```bash
 export AZURE_TENANT_ID="xxx"
 export AZURE_CLIENT_ID="xxx"
@@ -78,9 +79,9 @@ To run each individual demo, point directly to the file. For example (i.e. not c
 1. `python manage_action_group.py`
 2. `python manage_activity_log_alert.py`
 
-If the script start with `disable_***.py`, it means that it is unavailable now.
+If the script starts with `disable_***.py`, it means that it is unavailable now.
 
-To see the code of each example, simply look at the examples in the module folder. They are written to be isolated in scope so that you can see only what you're interested in.
+The sample files do not have dependency each other and each file represents an individual end-to-end scenario. Please look at the sample that contains the scenario you are interested in
 
 ## Resources
 
