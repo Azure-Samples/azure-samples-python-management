@@ -18,6 +18,7 @@ def main():
     HOST_NAME = "hostx"
 
     # Create client
+    # For other authentication approaches, please see: https://pypi.org/project/azure-identity/
     resource_client = ResourceManagementClient(
         credential=DefaultAzureCredentials(),
         subscription_id=SUBSCRIPTION_ID

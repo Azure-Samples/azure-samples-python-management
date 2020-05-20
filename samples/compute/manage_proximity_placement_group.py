@@ -17,6 +17,7 @@ def main():
     PROXIMITY_PLACEMENT_GROUP_NAME = "proximityplacementgroup"
 
     # Create client
+    # For other authentication approaches, please see: https://pypi.org/project/azure-identity/
     resource_client = ResourceManagementClient(
         credential=DefaultAzureCredentials(),
         subscription_id=SUBSCRIPTION_ID
