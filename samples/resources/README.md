@@ -10,7 +10,7 @@ urlFragment: azure-samples-python-management
 
 # Python Management SDK Samples
 
-These samples will show you how to manage resources in resource sdk.
+These samples will show you how to manage Resources in resource sdk.
 
 ## Features
 
@@ -22,8 +22,6 @@ This project framework provides examples for the following services:
 ## Getting Started
 
 ### Prerequisites
-
-1.  Before we run the samples, we need [register a new application using Azure portal](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal). Then copy the `Subscription ID`, `Application (client) ID`, `Directory (tenant) ID` and create a new application secret to get the secret value.
 
 1. Before we run the samples, we need to make sure we have setup the credentials. Follow the instructions in [register a new application using Azure portal](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) to obtain `subscription id`,`client id`,`client secret`, and `application id`
 
