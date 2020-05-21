@@ -24,7 +24,7 @@ def main():
     SUBNET_NAME = "subnetx"
     INTERFACE_NAME = "interfacexx"
 
-    your_password = ''.join(random.choice(string.ascii_lowercase) for i in range(8))
+    your_password = 'A1_' + ''.join(random.choice(string.ascii_lowercase) for i in range(8))
 
     # Create client
     # For other authentication approaches, please see: https://pypi.org/project/azure-identity/
