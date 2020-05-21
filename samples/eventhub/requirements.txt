@@ -1,0 +1,4 @@
+azure-identity
+azure-mgmt-eventhub
+azure-mgmt-resource
+azure-mgmt-storage
