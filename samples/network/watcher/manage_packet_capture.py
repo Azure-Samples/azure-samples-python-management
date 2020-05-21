@@ -30,7 +30,7 @@ def main():
     STORAGE_ACCOUNT_NAME = "storageaccountxxxy"
     NETWORK_WATCHER_NAME = "networkwatcher"
 
-    your_password = ''.join(random.choice(string.ascii_lowercase) for i in range(8))
+    your_password = 'A1_' + ''.join(random.choice(string.ascii_lowercase) for i in range(8))
 
     # Create client
     # For other authentication approaches, please see: https://pypi.org/project/azure-identity/
