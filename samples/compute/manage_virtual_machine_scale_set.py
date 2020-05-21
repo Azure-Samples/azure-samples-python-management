@@ -22,7 +22,7 @@ def main():
     NETWORK_NAME = "networknamex"
     SUBNET_NAME = "subnetnamex"
 
-    your_password = ''.join(random.choice(string.ascii_lowercase) for i in range(8))
+    your_password = 'A1_' + ''.join(random.choice(string.ascii_lowercase) for i in range(8))
 
     # Create client
     # For other authentication approaches, please see: https://pypi.org/project/azure-identity/
@@ -96,7 +96,7 @@ def main():
             "os_profile": {
               "computer_name_prefix": "testPC",
               "admin_username": "testuser",
-              "admin_password": "Aa!1()-xyz"
+              "admin_password": your_password
             },
             "network_profile": {
               "network_interface_configurations": [
