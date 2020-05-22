@@ -8,7 +8,7 @@ description: "These code samples will show you how to manage Compute using Azure
 urlFragment: azure-samples-python-management
 ---
 
-# Python Management SDK Samples
+# Getting started - Managing Compute using Azure Python SDK
 
 These code samples will show you how to manage Compute using Azure SDK for Python.
 
@@ -81,7 +81,7 @@ To run each individual demo, point directly to the file. For example (i.e. not c
 
 If the script starts with `disable_***.py`, it means that it is unavailable now.
 
-The sample files do not have dependency each other and each file represents an individual end-to-end scenario. Please look at the sample that contains the scenario you are interested in
+Each file is a separate code sample that no dependency on other files. You can look at whichever code sample you're interested in
 
 ## Resources
 
