@@ -8,7 +8,7 @@ description: "These code samples will show you how to manage Network using Azure
 urlFragment: azure-samples-python-management
 ---
 
-# Python Management SDK Samples
+# Getting started - Managing Network using Azure Python SDK
 
 These code samples will show you how to manage Network using Azure SDK for Python.
 
@@ -79,7 +79,7 @@ To run each individual demo, point directly to the file. For example (i.e. not c
 1. `python ip/manage_ip_group.py`
 2. `python virtual_network/manage_virtual_network.py`
 
-The sample files do not have dependency each other and each file represents an individual end-to-end scenario. Please look at the sample that contains the scenario you are interested in
+Each file is a separate code sample that no dependency on other files. You can look at whichever code sample you're interested in
 
 ## Resources
 
