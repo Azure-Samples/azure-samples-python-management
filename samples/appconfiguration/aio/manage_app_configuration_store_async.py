@@ -11,7 +11,7 @@ from azure.mgmt.appconfiguration.aio import AppConfigurationManagementClient
 from azure.mgmt.resource.resources.aio import ResourceManagementClient
 
 
-def main():
+async def main():
 
     SUBSCRIPTION_ID = os.environ.get("SUBSCRIPTION_ID", None)
     GROUP_NAME = "testgroupx"
@@ -19,91 +19,84 @@ def main():
 
     # Create client
     # For other authentication approaches, please see: https://pypi.org/project/azure-identity/
+    credential = DefaultAzureCredential()
     appconfig_client = AppConfigurationManagementClient(
-        credential=DefaultAzureCredential(),
+        credential=credential,
         subscription_id=SUBSCRIPTION_ID
     )
     resource_client = ResourceManagementClient(
-        credential=DefaultAzureCredential(),
+        credential=credential,
         subscription_id=SUBSCRIPTION_ID
     )
 
-    # Init event loop
-    event_loop = asyncio.get_event_loop()
-
     # Create resource group
-    event_loop.run_until_complete(
-        resource_client.resource_groups.create_or_update(
-            GROUP_NAME,
-            {"location": "eastus"}
-        )
+    await resource_client.resource_groups.create_or_update(
+        GROUP_NAME,
+        {"location": "eastus"}
     )
 
     # Create appconfiguration store
-    appconfig_store = event_loop.run_until_complete(
-        appconfig_client.configuration_stores.create(
-            GROUP_NAME,
-            CONFIG_STORE_NAME,
-            {
+    appconfig_store = await appconfig_client.configuration_stores.create(
+        GROUP_NAME,
+        CONFIG_STORE_NAME,
+        {
             "location": "eastus",
             "sku": {
                 "name": "Standard"
             }
-            }
-        )
+        }
     )
     print("Create appconfigruation store:\n{}".format(appconfig_store))
 
     # Get appconfiguration store
-    appconfig_store = event_loop.run_until_complete(
-        appconfig_client.configuration_stores.get(
-            GROUP_NAME,
-            CONFIG_STORE_NAME
-        )
+    appconfig_store = await appconfig_client.configuration_stores.get(
+        GROUP_NAME,
+        CONFIG_STORE_NAME
     )
     print("Get appconfigruation store:\n{}".format(appconfig_store))
 
+    # List appconfiguration store (List operation will return asyncList)
+    appconfig_stores = list()
+    async for app_store in appconfig_client.configuration_stores.list():
+        appconfig_stores.append(app_store)
+    print("List appconfiguration stores:\n{}".format(appconfig_stores))
+
     # Update appconfiguration store
-    appconfig_store = event_loop.run_until_complete(
-        appconfig_client.configuration_stores.update(
-            GROUP_NAME,
-            CONFIG_STORE_NAME,
-            {
+    appconfig_store = await appconfig_client.configuration_stores.update(
+        GROUP_NAME,
+        CONFIG_STORE_NAME,
+        {
             "tags": {
                 "category": "Marketing"
             },
             "sku": {
                 "name": "Standard"
             }
-            }
-        )
+        }
     )
     print("Update appconfigruation store:\n{}".format(appconfig_store))
 
     # Delete appconfiguration store
-    event_loop.run_until_complete(
-        appconfig_client.configuration_stores.delete(
-            GROUP_NAME,
-            CONFIG_STORE_NAME
-        )
+    await appconfig_client.configuration_stores.delete(
+        GROUP_NAME,
+        CONFIG_STORE_NAME
     )
     print("Delete appconfiguration store")
 
     # Delete Group
-    event_loop.run_until_complete(
-        resource_client.resource_groups.delete(
-            GROUP_NAME
-        )
+    await resource_client.resource_groups.delete(
+        GROUP_NAME
     )
 
     # close event loop
-    event_loop.run_until_complete(
-        appconfig_client.close()
-    )
-    event_loop.run_until_complete(
-        resource_client.close()
-    )
-    event_loop.close()
+    await appconfig_client.close()
+    await resource_client.close()
+    await credential.close()
 
 if __name__ == "__main__":
-    main()
+
+    event_loop = asyncio.get_event_loop()
+    event_loop.run_until_complete(
+        main()
+    )
+    event_loop.close()
