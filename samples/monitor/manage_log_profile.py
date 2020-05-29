@@ -5,7 +5,7 @@
 # --------------------------------------------------------------------------
 import os
 
-from azure.identity import DefaultAzureCredentials
+from azure.identity import DefaultAzureCredential
 from azure.mgmt.monitor import MonitorClient
 from azure.mgmt.resource import ResourceManagementClient
 from azure.mgmt.storage import StorageManagementClient
@@ -21,15 +21,15 @@ def main():
     # Create client
     # For other authentication approaches, please see: https://pypi.org/project/azure-identity/
     resource_client = ResourceManagementClient(
-        credential=DefaultAzureCredentials(),
+        credential=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID
     )
     monitor_client = MonitorClient(
-        credential=DefaultAzureCredentials(),
+        credential=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID
     )
     storage_client = StorageManagementClient(
-        credential=DefaultAzureCredentials(),
+        credential=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID
     )
 
