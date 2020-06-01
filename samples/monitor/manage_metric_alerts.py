@@ -7,7 +7,7 @@ import os
 import random
 import string
 
-from azure.identity import DefaultAzureCredentials
+from azure.identity import DefaultAzureCredential
 from azure.mgmt.compute import ComputeManagementClient
 from azure.mgmt.monitor import MonitorClient
 from azure.mgmt.network import NetworkManagementClient
@@ -29,19 +29,19 @@ def main():
     # Create client
     # For other authentication approaches, please see: https://pypi.org/project/azure-identity/
     resource_client = ResourceManagementClient(
-        credential=DefaultAzureCredentials(),
+        credential=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID
     )
     compute_client = ComputeManagementClient(
-        credential=DefaultAzureCredentials(),
+        credential=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID
     )
     network_client = NetworkManagementClient(
-        credential=DefaultAzureCredentials(),
+        credential=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID
     )
     monitor_client = MonitorClient(
-        credential=DefaultAzureCredentials(),
+        credential=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID
     )
 

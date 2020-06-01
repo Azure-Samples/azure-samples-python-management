@@ -6,7 +6,7 @@
 import os
 from dateutil import parser as date_parse
 
-from azure.identity import DefaultAzureCredentials
+from azure.identity import DefaultAzureCredential
 from azure.keyvault.keys import KeyClient
 from azure.mgmt.compute import ComputeManagementClient
 from azure.mgmt.keyvault import KeyVaultManagementClient
@@ -24,15 +24,15 @@ def main():
     # Create client
     # For other authentication approaches, please see: https://pypi.org/project/azure-identity/
     resource_client = ResourceManagementClient(
-        credential=DefaultAzureCredentials(),
+        credential=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID
     )
     compute_client = ComputeManagementClient(
-        credential=DefaultAzureCredentials(),
+        credential=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID
     )
     keyvault_client = KeyVaultManagementClient(
-        credentials=DefaultAzureCredentials(),
+        credentials=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID
     )
 
@@ -84,7 +84,7 @@ def main():
         }
     ).result()
 
-    key_client = KeyClient(vault.properties.vault_uri, DefaultAzureCredentials())
+    key_client = KeyClient(vault.properties.vault_uri, DefaultAzureCredential())
     
     expires_on = date_parse.parse("2050-02-02T08:00:00.000Z")
 

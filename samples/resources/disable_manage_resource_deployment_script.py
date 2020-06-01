@@ -6,7 +6,7 @@
 import os
 
 from azure.core.exceptions import HttpResponseError
-from azure.identity import DefaultAzureCredentials 
+from azure.identity import DefaultAzureCredential 
 from azure.mgmt.msi import ManagedServiceIdentityClient
 from azure.mgmt.resource import DeploymentScriptsClient, ResourceManagementClient
 
@@ -21,15 +21,15 @@ def main():
     # Create client
     # For other authentication approaches, please see: https://pypi.org/project/azure-identity/
     resource_client = ResourceManagementClient(
-        credential=DefaultAzureCredentials(),
+        credential=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID
     )
     script_client = DeploymentScriptsClient(
-        credential=DefaultAzureCredentials(),
+        credential=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID
     )
     msi_client = ManagedServiceIdentityClient(
-        credentials=DefaultAzureCredentials(),
+        credentials=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID
     )
 
