@@ -61,9 +61,10 @@ async def main():
     print("Update resource group:\n{}".format(resource_group))
 
     # Delete Group
-    await resource_client.resource_groups.delete(
+    async_poller = await resource_client.resource_groups.begin_delete(
         GROUP_NAME
     )
+    await async_poller.result()
     print("Delete resource group.\n")
 
     await resource_client.close()

@@ -36,7 +36,7 @@ async def main():
     )
 
     # Create appconfiguration store
-    appconfig_store = await appconfig_client.configuration_stores.create(
+    async_poller = await appconfig_client.configuration_stores.begin_create(
         GROUP_NAME,
         CONFIG_STORE_NAME,
         {
@@ -46,6 +46,7 @@ async def main():
             }
         }
     )
+    appconfig_store = await async_poller.result()
     print("Create appconfigruation store:\n{}".format(appconfig_store))
 
     # Get appconfiguration store
@@ -62,7 +63,7 @@ async def main():
     print("List appconfiguration stores:\n{}".format(appconfig_stores))
 
     # Update appconfiguration store
-    appconfig_store = await appconfig_client.configuration_stores.update(
+    async_poller = await appconfig_client.configuration_stores.begin_update(
         GROUP_NAME,
         CONFIG_STORE_NAME,
         {
@@ -74,19 +75,22 @@ async def main():
             }
         }
     )
+    appconfig_store = await async_poller.result()
     print("Update appconfigruation store:\n{}".format(appconfig_store))
 
     # Delete appconfiguration store
-    await appconfig_client.configuration_stores.delete(
+    async_poller = await appconfig_client.configuration_stores.begin_delete(
         GROUP_NAME,
         CONFIG_STORE_NAME
     )
+    await async_poller.result()
     print("Delete appconfiguration store")
 
     # Delete Group
-    await resource_client.resource_groups.delete(
+    async_poller = await resource_client.resource_groups.begin_delete(
         GROUP_NAME
     )
+    await async_poller.result()
 
     # close event loop
     await appconfig_client.close()

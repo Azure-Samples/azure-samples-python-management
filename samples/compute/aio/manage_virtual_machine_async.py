@@ -49,7 +49,7 @@ async def main():
     )
 
     # Create virtual network
-    await network_client.virtual_networks.create_or_update(
+    async_poller = await network_client.virtual_networks.begin_create_or_update(
         GROUP_NAME,
         NETWORK_NAME,
         {
@@ -59,16 +59,18 @@ async def main():
             }
         }
     )
+    await async_poller.result()
 
-    subnet = await network_client.subnets.create_or_update(
+    async_poller = await network_client.subnets.begin_create_or_update(
         GROUP_NAME,
         NETWORK_NAME,
         SUBNET_NAME,
         {'address_prefix': '10.0.0.0/24'}
     )
+    subnet = await async_poller.result()
 
     # Create network interface
-    await network_client.network_interfaces.create_or_update(
+    async_poller = await network_client.network_interfaces.begin_create_or_update(
         GROUP_NAME,
         INTERFACE_NAME,
         {
@@ -81,9 +83,10 @@ async def main():
             }]
         } 
     )
+    await async_poller.result()
 
     # Create virtual machine
-    vm = await compute_client.virtual_machines.create_or_update(
+    async_poller = await compute_client.virtual_machines.begin_create_or_update(
         GROUP_NAME,
         VIRTUAL_MACHINE_NAME,
         {
@@ -139,10 +142,11 @@ async def main():
             }
         }
     )
+    vm = await async_poller.result()
     print("Create virtual machine:\n{}".format(vm))
 
     # Create vm extension
-    extension = await compute_client.virtual_machine_extensions.create_or_update(
+    async_poller = await compute_client.virtual_machine_extensions.begin_create_or_update(
         GROUP_NAME,
         VIRTUAL_MACHINE_NAME,
         VIRTUAL_MACHINE_EXTENSION_NAME,
@@ -154,6 +158,7 @@ async def main():
         "type_handler_version": "1.4",
         }
     )
+    extension = await async_poller.result()
     print("Create vm extension:\n{}".format(extension))
 
     # Get virtual machine
@@ -178,7 +183,7 @@ async def main():
     print("Get vm extesnion:\n{}".format(extension))
 
     # Update virtual machine
-    vm = await compute_client.virtual_machines.update(
+    async_poller = await compute_client.virtual_machines.begin_update(
         GROUP_NAME,
         VIRTUAL_MACHINE_NAME,
         {
@@ -194,10 +199,11 @@ async def main():
         }
         }
     )
+    vm = await async_poller.result()
     print("Update virtual machine:\n{}".format(vm))
 
     # Update vm extension
-    extension = await compute_client.virtual_machine_extensions.update(
+    async_poller = await compute_client.virtual_machine_extensions.begin_update(
         GROUP_NAME,
         VIRTUAL_MACHINE_NAME,
         VIRTUAL_MACHINE_EXTENSION_NAME,
@@ -209,38 +215,44 @@ async def main():
             }
         }
     )
+    extension = await async_poller.result()
     print("Update vm extension:\n{}".format(extension))
 
 
     # Delete vm extension (Need vm started)
-    await compute_client.virtual_machines.start(
+    async_poller = await compute_client.virtual_machines.begin_start(
         GROUP_NAME,
         VIRTUAL_MACHINE_NAME
     )
+    await async_poller.result()
 
-    await compute_client.virtual_machine_extensions.delete(
+    async_poller = await compute_client.virtual_machine_extensions.begin_delete(
         GROUP_NAME,
         VIRTUAL_MACHINE_NAME,
         VIRTUAL_MACHINE_EXTENSION_NAME
     )
+    await async_poller.result()
     print("Delete vm extension.\n")
 
     # Delete virtual machine
-    await compute_client.virtual_machines.power_off(
+    async_poller = await compute_client.virtual_machines.begin_power_off(
         GROUP_NAME,
         VIRTUAL_MACHINE_NAME
     )
+    await async_poller.result()
 
-    await compute_client.virtual_machines.delete(
+    async_poller = await compute_client.virtual_machines.begin_delete(
         GROUP_NAME,
         VIRTUAL_MACHINE_NAME
     )
+    await async_poller.result()
     print("Delete virtual machine.\n")
 
     # Delete Group
-    await resource_client.resource_groups.delete(
+    async_poller = await resource_client.resource_groups.begin_delete(
         GROUP_NAME
     )
+    await async_poller.result()
 
     await resource_client.close()
     await compute_client.close()

@@ -37,7 +37,7 @@ async def main():
     )
 
     # Create vault
-    vault = await keyvault_client.vaults.create_or_update(
+    async_poller = await keyvault_client.vaults.begin_create_or_update(
         GROUP_NAME,
         VAULT,
         {
@@ -106,6 +106,7 @@ async def main():
           }
         }
     )
+    vault = await async_poller.result()
     print("Create vault:\n{}".format(vault))
 
     # Get vault
@@ -141,16 +142,18 @@ async def main():
     print("Delete vault.\n")
 
     # Purge a deleted vault
-    await keyvault_client.vaults.purge_deleted(
+    async_poller = await keyvault_client.vaults.begin_purge_deleted(
         VAULT,
         "eastus"
     )
+    await async_poller.result()
     print("Purge a deleted vault.\n")
 
     # Delete Group
-    await resource_client.resource_groups.delete(
+    async_poller = await resource_client.resource_groups.begin_delete(
         GROUP_NAME
     )
+    await async_poller.result()
 
     await keyvault_client.close()
     await resource_client.close()

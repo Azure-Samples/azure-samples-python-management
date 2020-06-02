@@ -42,7 +42,7 @@ async def main():
     )
 
     # Create Storage
-    storage_account = await storage_client.storage_accounts.create(
+    async_poller = await storage_client.storage_accounts.begin_create(
         GROUP_NAME,
         STORAGE_ACCOUNT_NAME,
         {
@@ -54,6 +54,7 @@ async def main():
             "enable_https_traffic_only": True
         }
     )
+    storage_account = await async_poller.result()
 
     # Create log profile
     log_profile = await monitor_client.log_profiles.create_or_update(
@@ -95,12 +96,14 @@ async def main():
     print("Delete log profile.\n")
 
     # Delete Group
-    await resource_client.resource_groups.delete(
+    async_poller = await resource_client.resource_groups.begin_delete(
         GROUP_NAME
     )
+    await async_poller.result()
 
     await monitor_client.close()
     await resource_client.close()
+    await storage_client.close()
     await credential.close()
 
 

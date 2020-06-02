@@ -36,7 +36,7 @@ async def main():
     )
 
     # Create virtual network
-    network = await network_client.virtual_networks.create_or_update(
+    async_poller = await network_client.virtual_networks.begin_create_or_update(
         GROUP_NAME,
         VIRTUAL_NETWORK_NAME,
         {
@@ -48,6 +48,7 @@ async def main():
           "location": "eastus"
         }
     )
+    network = await async_poller.result()
     print("Create virtual network:\n{}".format(network))
 
     # Get virtual network
@@ -77,16 +78,18 @@ async def main():
     print("Update virtual network tags:\n{}".format(network))
 
     # Delete virtual network
-    await network_client.virtual_networks.delete(
+    async_poller = await network_client.virtual_networks.begin_delete(
         GROUP_NAME,
         VIRTUAL_NETWORK_NAME
     )
+    await async_poller.result()
     print("Delete virtual network.\n")
 
     # Delete Group
-    await resource_client.resource_groups.delete(
+    async_poller = await resource_client.resource_groups.begin_delete(
         GROUP_NAME
     )
+    await async_poller.result()
 
     await network_client.close()
     await resource_client.close()

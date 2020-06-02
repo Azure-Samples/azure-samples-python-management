@@ -37,7 +37,7 @@ async def main():
     )
 
     # Create Namespace
-    namesapce = await eventhub_client.namespaces.create_or_update(
+    async_poller = await eventhub_client.namespaces.begin_create_or_update(
         GROUP_NAME,
         NAMESPACE_NAME,
         {
@@ -52,7 +52,8 @@ async def main():
           }
         }
     )
-    print("Create Namespace:\n{}".format(namesapce))
+    namespace = await async_poller.result()
+    print("Create Namespace:\n{}".format(namespace))
 
     # Get Namesapce
     namespace = await eventhub_client.namespaces.get(
@@ -80,19 +81,23 @@ async def main():
           }
         }
     )
-    print("Update Namespace:\n{}".format(namesapce))
+    print("Update Namespace:\n{}".format(namespace))
+
+    await asyncio.sleep(30)
 
     # Delete Namespace
-    await eventhub_client.namespaces.delete(
+    async_poller = await eventhub_client.namespaces.begin_delete(
         GROUP_NAME,
         NAMESPACE_NAME
     )
+    await async_poller.result()
     print("Delete Namespace.\n")
 
     # Delete resource group
-    await resource_client.resource_groups.delete(
+    async_poller = await resource_client.resource_groups.begin_delete(
         GROUP_NAME
     )
+    await async_poller.result()
 
     # Close event loop
     await eventhub_client.close()
