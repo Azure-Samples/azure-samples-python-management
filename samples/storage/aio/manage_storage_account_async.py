@@ -36,7 +36,7 @@ async def main():
     )
 
     # Create storage account
-    storage_account = await storage_client.storage_accounts.create(
+    async_poller = await storage_client.storage_accounts.begin_create(
         GROUP_NAME,
         STORAGE_ACCOUNT,
         {
@@ -64,6 +64,7 @@ async def main():
           }
         }
     )
+    storage_account = await async_poller.result()
     print("Create storage account:\n{}".format(storage_account))
 
     # Get storage account
@@ -112,9 +113,10 @@ async def main():
     print("Delete storage account.\n")
 
     # Delete Group
-    await resource_client.resource_groups.delete(
+    async_poller = await resource_client.resource_groups.begin_delete(
         GROUP_NAME
     )
+    await async_poller.result()
 
     await storage_client.close()
     await resource_client.close()
