@@ -8,7 +8,7 @@ description: "These code samples will show you how to manage Compute using Azure
 urlFragment: compute
 ---
 
-# Python Management SDK Samples
+# Getting started - Managing Compute using Azure Python SDK
 
 These code samples will show you how to manage Compute using Azure SDK for Python.
 

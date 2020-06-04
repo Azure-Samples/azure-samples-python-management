@@ -254,6 +254,8 @@ async def main():
     )
     await async_poller.result()
 
+    # [Warning] All clients and credentials need to be closed.
+    # link: https://github.com/Azure/azure-sdk-for-python/issues/8990
     await resource_client.close()
     await compute_client.close()
     await network_client.close()
