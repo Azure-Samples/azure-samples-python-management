@@ -8,7 +8,7 @@ description: "These code samples will show you how to manage Monitor using Azure
 urlFragment: monitor 
 ---
 
-# Python Monitor SDK Samples
+# Getting started - Managing Monitor using Azure Python SDK
 
 These code samples will show you how to manage Monitor using Azure SDK for Python.
 

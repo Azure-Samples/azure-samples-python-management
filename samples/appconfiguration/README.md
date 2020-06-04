@@ -8,7 +8,7 @@ description: "These code samples will show you how to manage Appconfiguration us
 urlFragment: appconfiguration
 ---
 
-# Python Management SDK Samples
+# Getting started - Managing Appconfiguration using Azure Python SDK
 
 These code samples will show you how to manage Appconfiguration using Azure SDK for Python.
 

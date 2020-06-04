@@ -8,7 +8,7 @@ description: "These code samples will show you how to manage Eventhub using Azur
 urlFragment: eventhub
 ---
 
-# Python Management SDK Samples
+# Getting started - Managing Eventhub using Azure Python SDK
 
 These code samples will show you how to manage Eventhub using Azure SDK for Python.
 
