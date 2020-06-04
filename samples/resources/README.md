@@ -5,7 +5,7 @@ languages:
 products:
 - azure
 description: "These samples will show you how to show to manage Resource using Azure Python SDK."
-urlFragment: azure-samples-python-management
+urlFragment: resources 
 ---
 
 # Getting started - Managing Resource using Azure Python SDK

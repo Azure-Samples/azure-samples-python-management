@@ -5,7 +5,7 @@ languages:
 products:
 - azure
 description: "These code samples will show you how to manage Compute using Azure SDK for Python."
-urlFragment: azure-samples-python-management
+urlFragment: compute
 ---
 
 # Python Management SDK Samples

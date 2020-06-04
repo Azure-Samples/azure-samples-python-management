@@ -5,7 +5,7 @@ languages:
 products:
 - azure
 description: "These code samples will show you how to manage Network using Azure SDK for Python."
-urlFragment: azure-samples-python-management
+urlFragment: network 
 ---
 
 # Getting started - Managing Network using Azure Python SDK
