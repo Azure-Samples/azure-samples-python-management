@@ -5,7 +5,7 @@ languages:
 products:
 - azure
 description: "These code samples will show you how to manage Eventhub using Azure SDK for Python."
-urlFragment: azure-samples-python-management
+urlFragment: eventhub
 ---
 
 # Python Management SDK Samples

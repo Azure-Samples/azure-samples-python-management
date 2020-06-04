@@ -5,7 +5,7 @@ languages:
 products:
 - azure
 description: "These code samples will show you how to manage Appconfiguration using Azure SDK for Python"
-urlFragment: azure-samples-python-management
+urlFragment: appconfiguration
 ---
 
 # Python Management SDK Samples

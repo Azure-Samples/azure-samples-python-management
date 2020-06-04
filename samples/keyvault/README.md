@@ -5,7 +5,7 @@ languages:
 products:
 - azure
 description: "These code samples will show you how to manage KeyVault using Azure SDK for Python."
-urlFragment: azure-samples-python-management
+urlFragment: keyvault
 ---
 
 # Getting started - Managing KeyVault using Azure Python SDK

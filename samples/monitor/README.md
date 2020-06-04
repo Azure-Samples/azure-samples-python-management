@@ -5,7 +5,7 @@ languages:
 products:
 - azure
 description: "These code samples will show you how to manage Monitor using Azure SDK for Python."
-urlFragment: azure-samples-python-management
+urlFragment: monitor 
 ---
 
 # Python Monitor SDK Samples
