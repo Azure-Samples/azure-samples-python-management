@@ -79,6 +79,10 @@ To run each individual demo, point directly to the file. For example (i.e. not c
 1. `python ip/manage_ip_group.py`
 2. `python virtual_network/manage_virtual_network.py`
 
+If you want to try async demo, you can run the demo in `aio/` directory. It should be noted that it only works in python>=3.5.
+
+1. `python aio/manage_virtual_network_async.py`
+
 Each file is a separate code sample that no dependency on other files. You can look at whichever code sample you're interested in
 
 ## Resources
