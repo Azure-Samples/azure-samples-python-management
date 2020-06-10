@@ -78,6 +78,10 @@ To run each individual demo, point directly to the file. For example (i.e. not c
 
 1. `python manage_app_configuration_store.py`
 
+If you want to try async demo, you can run the demo in `aio/` directory. It should be noted that it only works in python>=3.5.
+
+1. `python aio/manage_app_configuration_store_async.py`
+
 The sample files do not have dependency each other and each file represents an individual end-to-end scenario. Please look at the sample that contains the scenario you are interested in
 
 ## Resources
