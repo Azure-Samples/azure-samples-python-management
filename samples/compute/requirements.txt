@@ -1,4 +1,4 @@
 azure-identity
-azure-mgmt-compute
-azure-mgmt-network
-azure-mgmt-resource
+azure-mgmt-compute==17.0.0b1
+azure-mgmt-network==16.0.0b1
+azure-mgmt-resource==15.0.0b1
