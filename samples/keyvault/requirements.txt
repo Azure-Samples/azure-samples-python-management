@@ -1,0 +1,3 @@
+azure-identity
+zure-mgmt-resource==15.0.0b1
+azure-mgmt-keyvault==7.0.0b1
