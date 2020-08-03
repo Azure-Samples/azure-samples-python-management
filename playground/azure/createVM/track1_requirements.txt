@@ -1,0 +1,4 @@
+azure-mgmt-compute
+azure-mgmt-resource
+azure-mgmt-network
+azure-common
