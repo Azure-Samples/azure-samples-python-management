@@ -152,7 +152,7 @@ def main():
     print("Get vpn gateway:\n{}".format(vpn_gateway))
 
     # Update vpn gateway
-    vpn_gateway = network_client.vpn_gateways.update_tags(
+    vpn_gateway = network_client.vpn_gateways.begin_update_tags(
         GROUP_NAME,
         VPN_GATEWAY,
         {
@@ -161,7 +161,7 @@ def main():
             "key2": "value2"
           }
         }
-    )
+    ).result()
     print("Update vpn gateway:\n{}".format(vpn_gateway))
     
     # Delete vpn gateway
