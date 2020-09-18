@@ -15,6 +15,7 @@ def main():
     SUBSCRIPTION_ID = os.environ.get("SUBSCRIPTION_ID", None)
     GROUP_NAME = "testgroupx"
     STORAGE_ACCOUNT = "storageaccountxxxyy"
+    POLICY_NAME = "default"
 
     # Create client
     # # For other authentication approaches, please see: https://pypi.org/project/azure-identity/
@@ -69,6 +70,7 @@ def main():
     management_policy = storage_client.management_policies.create_or_update(
         GROUP_NAME,
         STORAGE_ACCOUNT,
+        POLICY_NAME,
         {
           "policy": {
             "rules": [
@@ -114,14 +116,16 @@ def main():
     # Get management policy
     management_policy = storage_client.management_policies.get(
         GROUP_NAME,
-        STORAGE_ACCOUNT
+        STORAGE_ACCOUNT,
+        POLICY_NAME
     )
     print("Get management policy:\n{}".format(management_policy))
 
     # Delete management policy
     management_policy = storage_client.management_policies.delete(
         GROUP_NAME,
-        STORAGE_ACCOUNT
+        STORAGE_ACCOUNT,
+        POLICY_NAME
     )
     print("Delete management policy.\n")
 
