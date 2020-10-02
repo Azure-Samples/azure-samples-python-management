@@ -78,14 +78,24 @@ export AZURE_NOTIFICATION_HUB_CONNECTION_STRING="xxx"
 
 ## Demo
 
-A demo app is included to show how to use the project.
+A demo app is included to show how to use the project. This app covers the following scenarios:
+
+- Create a Communication Service
+- Fetch a Communication Service
+- Update a Communication Service
+- Delete a Communication Service
+- List all Communication Services in the subscription
+- List all Communication Services in the resource group
+- List the Primary and Secondary key pairs
+- Regenerate the Primary or Secondary key pair
+- Link a Notification Hub to the Communication Service
 
 To view all available commands for the demo, execute `python manage_communication.py -h`
 
 To run the complete demo, execute `python manage_communication.py all`
 
-
-The sample files do not have dependency each other and each file represents an individual end-to-end scenario. Please look at the sample that contains the scenario you are interested in
+The sample files do not have dependency each other and each file represents an individual end-to-end scenario.
+Please look at the sample that contains the scenario you are interested in
 
 ## Resources
 
