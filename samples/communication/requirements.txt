@@ -1,0 +1,5 @@
+azure-identity==1.4.0
+azure-core==1.8.1
+azure-mgmt-core==1.2.0
+azure-mgmt-resource==15.0.0
+azure-mgmt-communication==1.0.0b2
