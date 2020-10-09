@@ -32,7 +32,7 @@ def main():
         subscription_id=SUBSCRIPTION_ID
     )
     keyvault_client = KeyVaultManagementClient(
-        credentials=DefaultAzureCredential(),
+        credential=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID
     )
 
@@ -43,14 +43,15 @@ def main():
     )
 
     # Create key
-    vault = keyvault_client.vaults.create_or_update(
+    vault = keyvault_client.vaults.begin_create_or_update(
         GROUP_NAME,
         KEY_VAULT,
         {
             'location': "eastus",
             'properties': {
             'sku': {
-                'name': 'standard'
+                'name': 'standard',
+                'family': 'A'
             },
             'tenant_id': TENANT_ID,
             "access_policies": [
