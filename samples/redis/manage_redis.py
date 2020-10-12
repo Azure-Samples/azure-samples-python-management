@@ -77,7 +77,7 @@ def main():
           },
           "enable_non_ssl_port": True,
           "shard_count": "2",
-        #   "replicas_per_master": "2",
+          # "replicas_per_master": "2",
           "redis_configuration": {
             "maxmemory-policy": "allkeys-lru"
           },
