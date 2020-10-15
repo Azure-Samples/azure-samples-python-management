@@ -5,7 +5,7 @@ languages:
 products:
 - azure
 description: "These code samples will show you how to manage Authorization using Azure SDK for Python."
-urlFragment: Authorization
+urlFragment: authorization
 ---
 
 # Getting started - Managing Authorization using Azure Python SDK
