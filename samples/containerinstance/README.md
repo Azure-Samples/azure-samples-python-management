@@ -5,7 +5,7 @@ languages:
 products:
 - azure
 description: "These code samples will show you how to manage Container Instance using Azure SDK for Python."
-urlFragment: Container Instance
+urlFragment: containerinstance
 ---
 
 # Getting started - Managing Container Instance using Azure Python SDK
