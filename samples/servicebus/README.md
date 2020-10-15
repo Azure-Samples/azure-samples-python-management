@@ -4,20 +4,20 @@ languages:
 - python
 products:
 - azure
-description: "These code samples will show you how to manage ServiceBus using Azure SDK for Python."
-urlFragment: servicebus
+description: "These code samples will show you how to manage Service Bus using Azure SDK for Python."
+urlFragment: service bus
 ---
 
-# Getting started - Managing ServiceBus using Azure Python SDK
+# Getting started - Managing Service Bus using Azure Python SDK
 
-These code samples will show you how to manage ServiceBus using Azure SDK for Python.
+These code samples will show you how to manage Service Bus using Azure SDK for Python.
 
 ## Features
 
 This project framework provides examples for the following services:
 
-### ServiceBus
-* Using the Azure SDK for Python - ServiceBus Manamgement Library [azure-mgmt-servicebus](https://pypi.org/project/azure-mgmt-servicebus/) for the [ServiceBus API](https://docs.microsoft.com/en-us/rest/api/servicebus/)
+### Service Bus
+* Using the Azure SDK for Python - Service Bus Manamgement Library [azure-mgmt-servicebus](https://pypi.org/project/azure-mgmt-servicebus/) for the [Service Bus API](https://docs.microsoft.com/en-us/rest/api/servicebus/)
 
 ## Getting Started
 
