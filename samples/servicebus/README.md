@@ -5,7 +5,7 @@ languages:
 products:
 - azure
 description: "These code samples will show you how to manage Service Bus using Azure SDK for Python."
-urlFragment: service bus
+urlFragment: servicebus
 ---
 
 # Getting started - Managing Service Bus using Azure Python SDK
