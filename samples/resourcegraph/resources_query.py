@@ -12,6 +12,8 @@ from azure.mgmt.resourcegraph.models import *
 # - other dependence -
 # - end -
 def main():
+
+    # If "SUBSCRIPTION_ID" is not set in the environment variable, you need to set it manually: export SUBSCRIPTION_ID="{SUBSCRIPTION_ID}"
     SUBSCRIPTION_ID = os.environ.get("SUBSCRIPTION_ID", None)
 
     # Create client
@@ -76,7 +78,7 @@ def main():
             )
         ]
     )
-    query_response = self.resourcegraph_client.resources(query)
+    query_response = resourcegraph_client.resources(query)
     print("Query with facet expressions:\n{}".format(query_response))
 
 
