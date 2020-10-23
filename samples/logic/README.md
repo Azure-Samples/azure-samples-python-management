@@ -76,7 +76,7 @@ To run the complete demo, execute `python example.py`
 
 To run each individual demo, point directly to the file. For example (i.e. not complete list):
 
-1. `python manage_agent_pool.py`
+1. `python manage_logic.py`
 
 If the script starts with `disable_***.py`, it means that it is unavailable now.
 
