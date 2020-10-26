@@ -4,20 +4,20 @@ languages:
 - python
 products:
 - azure
-description: "These code samples will show you how to manage Sql using Azure SDK for Python."
+description: "These code samples will show you how to manage SQL using Azure SDK for Python."
 urlFragment: sql 
 ---
 
-# Getting started - Managing Sql using Azure Python SDK
+# Getting started - Managing SQL using Azure Python SDK
 
-These code samples will show you how to manage Sql using Azure SDK for Python.
+These code samples will show you how to manage SQL using Azure SDK for Python.
 
 ## Features
 
 This project framework provides examples for the following services:
 
 ### Storage
-* Using the Azure SDK for Python - Sql Manamgement Library [azure-mgmt-sql](https://pypi.org/project/azure-mgmt-sql/) for the [Sql API](https://docs.microsoft.com/en-us/rest/api/sql/)
+* Using the Azure SDK for Python - SQL Manamgement Library [azure-mgmt-sql](https://pypi.org/project/azure-mgmt-sql/) for the [SQL API](https://docs.microsoft.com/en-us/rest/api/sql/)
 
 ## Getting Started
 

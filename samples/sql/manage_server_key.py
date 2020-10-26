@@ -17,6 +17,7 @@ from azure.mgmt.resource import ResourceManagementClient
 def main():
 
     SUBSCRIPTION_ID = os.environ.get("SUBSCRIPTION_ID", None)
+    PASSWORD = os.environ.get("PASSWORD", None)
     TENANT_ID = os.environ.get("TENANT_ID", None)
     CLIENT_OID = os.environ.get("CLIENT_OID", None)
     GROUP_NAME = "testgroupx"
@@ -58,7 +59,7 @@ def main():
             "type": "SystemAssigned"
           },
           "administrator_login": "dummylogin",
-          "administrator_login_password": "Un53cuRE!",
+          "administrator_login_password": PASSWORD,
           "version": "12.0",
           "public_network_access":"Enabled"
         }

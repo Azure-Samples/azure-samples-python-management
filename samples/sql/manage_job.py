@@ -14,6 +14,7 @@ from azure.mgmt.resource import ResourceManagementClient
 def main():
 
     SUBSCRIPTION_ID = os.environ.get("SUBSCRIPTION_ID", None)
+    PASSWORD = os.environ.get("PASSWORD", None)
     GROUP_NAME = "testgroupx"
     JOB = "jobxxyyzz"
     SERVER = "serverxxyz"
@@ -49,7 +50,7 @@ def main():
         {
           "location": "eastus",
           "administrator_login": "dummylogin",
-          "administrator_login_password": "Un53cuRE!"
+          "administrator_login_password": PASSWORD
         }
     ).result()
     print("Create server:\n{}".format(server))
