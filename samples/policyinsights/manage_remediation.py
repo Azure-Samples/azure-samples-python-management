@@ -7,7 +7,7 @@
 import os
 
 from azure.identity import DefaultAzureCredential
-from azure.mgmt.policyinsights import PolicyinsightsManagementClient
+from azure.mgmt.policyinsights import PolicyInsightsClient
 from azure.mgmt.resource import PolicyClient, ResourceManagementClient
 
 
@@ -25,7 +25,7 @@ def main():
         credential=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID
     )
-    policyinsights_client = PolicyinsightsManagementClient(
+    policyinsights_client = PolicyInsightsClient(
         credential=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID
     )
