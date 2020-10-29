@@ -1,0 +1,4 @@
+azure-identity
+azure-mgmt-resource==15.0.0
+azure-mgmt-storage==16.0.0
+azure-mgmt-hdinsight==7.0.0b1
