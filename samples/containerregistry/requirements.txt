@@ -1,0 +1,3 @@
+azure-identity
+azure-mgmt-resource==15.0.0
+azure-mgmt-containerregistry==8.0.0b1
