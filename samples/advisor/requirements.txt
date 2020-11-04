@@ -1,0 +1,3 @@
+azure-identity
+azure-mgmt-advisor==9.0.0b1
+azure-mgmt-resource==15.0.0
