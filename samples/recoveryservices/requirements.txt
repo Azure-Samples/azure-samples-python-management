@@ -1,0 +1,3 @@
+azure-identity
+azure-mgmt-recoveryservices==1.0.0b1
+azure-mgmt-resource>=15.0.0
