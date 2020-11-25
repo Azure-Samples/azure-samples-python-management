@@ -17,7 +17,7 @@ These code samples will show you how to manage Resource Graph using Azure SDK fo
 This project framework provides examples for the following services:
 
 ### Resource Graph
-* [] Using the Azure SDK for Python - Resource Graph Management Library [azure-mgmt-resourcegraph](https://pypi.org/project/resourcegraph/) for the [Resource Graph API](https://docs.microsoft.com/en-us/rest/api/resourcegraph/)
+* [] Using the Azure SDK for Python - Resource Graph Management Library [azure-mgmt-resourcegraph](https://pypi.org/project/resourcegraph/) for the [Resource Graph API](https://docs.microsoft.com/en-us/rest/api/azure-resourcegraph/)
 
 ## Getting Started
 
