@@ -4,20 +4,20 @@ languages:
 - python
 products:
 - azure
-description: "These code samples will show you how to manage cdn using Azure SDK for Python."
+description: "These code samples will show you how to manage CDN using Azure SDK for Python."
 urlFragment: cdn
 ---
 
-# Getting started - Managing cdn using Azure Python SDK
+# Getting started - Managing CDN using Azure Python SDK
 
-These code samples will show you how to manage cdn using Azure SDK for Python.
+These code samples will show you how to manage CDN using Azure SDK for Python.
 
 ## Features
 
 This project framework provides examples for the following services:
 
-### cdn
-* [] Using the Azure SDK for Python - cdn Management Library [azure-mgmt-cdn](https://pypi.org/project/azure-mgmt-cdn/) for the [cdn API](https://docs.microsoft.com/en-us/rest/api/cdn/)
+### CDN
+* [] Using the Azure SDK for Python - CDB Management Library [azure-mgmt-cdn](https://pypi.org/project/azure-mgmt-cdn/) for the [CDN API](https://docs.microsoft.com/en-us/rest/api/cdn/)
 
 ## Getting Started
 

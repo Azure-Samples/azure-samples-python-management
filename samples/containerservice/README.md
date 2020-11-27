@@ -17,7 +17,7 @@ These code samples will show you how to manage Container Service using Azure SDK
 This project framework provides examples for the following services:
 
 ### Container Service
-* [] Using the Azure SDK for Python - Container Service Management Library [azure-mgmt-containerservice](https://pypi.org/project/azure-mgmt-containerservice/) for the [Container Service API](https://docs.microsoft.com/en-us/rest/api/containerservice/)
+* [] Using the Azure SDK for Python - Container Service Management Library [azure-mgmt-containerservice](https://pypi.org/project/azure-mgmt-containerservice/) for the [Container Service API](https://docs.microsoft.com/en-us/rest/api/container-service/)
 
 ## Getting Started
 

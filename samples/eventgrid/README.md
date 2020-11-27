@@ -4,20 +4,20 @@ languages:
 - python
 products:
 - azure
-description: "These code samples will show you how to manage eventgrid using Azure SDK for Python."
+description: "These code samples will show you how to manage Event Grid using Azure SDK for Python."
 urlFragment: eventgrid
 ---
 
-# Getting started - Managing eventgrid using Azure Python SDK
+# Getting started - Managing Event Grid using Azure Python SDK
 
-These code samples will show you how to manage eventgrid using Azure SDK for Python.
+These code samples will show you how to manage Event Grid using Azure SDK for Python.
 
 ## Features
 
 This project framework provides examples for the following services:
 
-### eventgrid
-* [] Using the Azure SDK for Python - eventgrid Management Library [azure-mgmt-eventgrid](https://pypi.org/project/azure-mgmt-eventgrid/) for the [eventgrid API](https://docs.microsoft.com/en-us/rest/api/eventgrid/)
+### Event Grid
+* [] Using the Azure SDK for Python - Event Grid Management Library [azure-mgmt-eventgrid](https://pypi.org/project/azure-mgmt-eventgrid/) for the [Event Grid API](https://docs.microsoft.com/en-us/rest/api/eventgrid/)
 
 ## Getting Started
 

@@ -4,20 +4,20 @@ languages:
 - python
 products:
 - azure
-description: "These code samples will show you how to manage machinelearningservices using Azure SDK for Python."
+description: "These code samples will show you how to manage Machine Learning using Azure SDK for Python."
 urlFragment: machinelearningservices
 ---
 
-# Getting started - Managing machinelearningservices using Azure Python SDK
+# Getting started - Managing Machine Learning using Azure Python SDK
 
-These code samples will show you how to manage machinelearningservices using Azure SDK for Python.
+These code samples will show you how to manage Machine Learning using Azure SDK for Python.
 
 ## Features
 
 This project framework provides examples for the following services:
 
-### machinelearningservices
-* [] Using the Azure SDK for Python - machinelearningservices Management Library [azure-mgmt-machinelearningservices](https://pypi.org/project/azure-mgmt-machinelearningservices/) for the [machinelearningservices API](https://docs.microsoft.com/en-us/rest/api/machinelearningservices/)
+### Machine Learning
+* [] Using the Azure SDK for Python - Machine Learning Management Library [azure-mgmt-machinelearningservices](https://pypi.org/project/azure-mgmt-machinelearningservices/) for the [Machine Learning API](https://docs.microsoft.com/en-us/rest/api/azureml/)
 
 ## Getting Started
 

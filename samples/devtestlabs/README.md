@@ -4,20 +4,20 @@ languages:
 - python
 products:
 - azure
-description: "These code samples will show you how to manage devtestlabs using Azure SDK for Python."
+description: "These code samples will show you how to manage Dev Test Labs using Azure SDK for Python."
 urlFragment: devtestlabs
 ---
 
-# Getting started - Managing devtestlabs using Azure Python SDK
+# Getting started - Managing Dev Test Labs using Azure Python SDK
 
-These code samples will show you how to manage devtestlabs using Azure SDK for Python.
+These code samples will show you how to manage Dev Test Labs using Azure SDK for Python.
 
 ## Features
 
 This project framework provides examples for the following services:
 
-### devtestlabs
-* [] Using the Azure SDK for Python - devtestlabs Management Library [azure-mgmt-devtestlabs](https://pypi.org/project/azure-mgmt-devtestlabs/) for the [devtestlabs API](https://docs.microsoft.com/en-us/rest/api/devtestlabs/)
+### Dev Test Labs
+* [] Using the Azure SDK for Python - Dev Test Labs Management Library [azure-mgmt-devtestlabs](https://pypi.org/project/azure-mgmt-devtestlabs/) for the [Dev Test Labs API](https://docs.microsoft.com/en-us/rest/api/dtl/labs)
 
 ## Getting Started
 

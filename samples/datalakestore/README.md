@@ -4,20 +4,20 @@ languages:
 - python
 products:
 - azure
-description: "These code samples will show you how to manage datalakestore using Azure SDK for Python."
+description: "These code samples will show you how to manage Data Lake Storage using Azure SDK for Python."
 urlFragment: datalakestore
 ---
 
-# Getting started - Managing datalakestore using Azure Python SDK
+# Getting started - Managing Data Lake Storage using Azure Python SDK
 
-These code samples will show you how to manage datalakestore using Azure SDK for Python.
+These code samples will show you how to manage Data Lake Storage using Azure SDK for Python.
 
 ## Features
 
 This project framework provides examples for the following services:
 
-### datalakestore
-* [] Using the Azure SDK for Python - datalakestore Management Library [azure-mgmt-datalake-store](https://pypi.org/project/azure-mgmt-datalake-store/) for the [datalakestore API](https://docs.microsoft.com/en-us/rest/api/datalakestore/)
+### Data Lake Storage
+* [] Using the Azure SDK for Python - Data Lake Storage Management Library [azure-mgmt-datalake-store](https://pypi.org/project/azure-mgmt-datalake-store/) for the [Data Lake Storage API](https://docs.microsoft.com/en-us/rest/api/datalakestore/)
 
 ## Getting Started
 
