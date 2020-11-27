@@ -4,20 +4,20 @@ languages:
 - python
 products:
 - azure
-description: "These code samples will show you how to manage consumption using Azure SDK for Python."
+description: "These code samples will show you how to manage Consumption using Azure SDK for Python."
 urlFragment: consumption
 ---
 
-# Getting started - Managing consumption using Azure Python SDK
+# Getting started - Managing Consumption using Azure Python SDK
 
-These code samples will show you how to manage consumption using Azure SDK for Python.
+These code samples will show you how to manage Consumption using Azure SDK for Python.
 
 ## Features
 
 This project framework provides examples for the following services:
 
-### consumption
-* [] Using the Azure SDK for Python - consumption Management Library [azure-mgmt-consumption](https://pypi.org/project/azure-mgmt-consumption/) for the [consumption API](https://docs.microsoft.com/en-us/rest/api/consumption/)
+### Consumption
+* [] Using the Azure SDK for Python - Consumption Management Library [azure-mgmt-consumption](https://pypi.org/project/azure-mgmt-consumption/) for the [Consumption API](https://docs.microsoft.com/en-us/rest/api/consumption/)
 
 ## Getting Started
 

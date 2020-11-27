@@ -4,20 +4,20 @@ languages:
 - python
 products:
 - azure
-description: "These code samples will show you how to manage hdinsight using Azure SDK for Python."
+description: "These code samples will show you how to manage HDInsight using Azure SDK for Python."
 urlFragment: hdinsight
 ---
 
-# Getting started - Managing hdinsight using Azure Python SDK
+# Getting started - Managing HDInsight using Azure Python SDK
 
-These code samples will show you how to manage hdinsight using Azure SDK for Python.
+These code samples will show you how to manage HDInsight using Azure SDK for Python.
 
 ## Features
 
 This project framework provides examples for the following services:
 
-### hdinsight
-* [] Using the Azure SDK for Python - hdinsight Management Library [azure-mgmt-hdinsight](https://pypi.org/project/azure-mgmt-hdinsight/) for the [hdinsight API](https://docs.microsoft.com/en-us/rest/api/hdinsight/)
+### HDInsight
+* [] Using the Azure SDK for Python - HDInsight Management Library [azure-mgmt-hdinsight](https://pypi.org/project/azure-mgmt-hdinsight/) for the [HDInsight API](https://docs.microsoft.com/en-us/rest/api/hdinsight/)
 
 ## Getting Started
 

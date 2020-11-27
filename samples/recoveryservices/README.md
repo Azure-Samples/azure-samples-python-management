@@ -4,7 +4,7 @@ languages:
 - python
 products:
 - azure
-description: "These code samples will show you how to manage Recovery Services  using Azure SDK for Python."
+description: "These code samples will show you how to manage Recovery Services using Azure SDK for Python."
 urlFragment: recoveryservices
 ---
 
