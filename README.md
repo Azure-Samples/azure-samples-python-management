@@ -2,6 +2,8 @@
 
 This repo contains code samples that demonstrate the usage of management client libraries of Azure Python SDK.
 
+If you want to learn about the general usage pattern of Python management libraries, please check [the documentation here](https://aka.ms/azsdk/python/mgmt)
+
 To find the code samples for a particular service you are using, please click on the folder that you're interested in. Each folder name is based on the Azure service, eg. Compute / Network / Storage
 
 Samples:
