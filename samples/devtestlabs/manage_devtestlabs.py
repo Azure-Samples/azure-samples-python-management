@@ -25,11 +25,11 @@ def main():
     # Create client
     # # For other authentication approaches, please see: https://pypi.org/project/azure-identity/
     resource_client = ResourceManagementClient(
-        credential=DefaultAzureCredential(),
+        credentials=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID
     )
     devtestlabs_client = DevTestLabsClient(
-        credential=DefaultAzureCredential(),
+        credentials=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID
     )
     # - init depended client -
