@@ -1,0 +1,2 @@
+azure-identity
+azure-mgmt-resourcehealth==1.0.0b1
