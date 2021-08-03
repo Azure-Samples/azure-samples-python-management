@@ -16,7 +16,7 @@ You can use a load balancer to provide high availability for your workloads in A
 
 For a detailed overview of Azure load balancers, see [Azure Load Balancer overview](https://azure.microsoft.com/documentation/articles/load-balancer-overview/).
 
-![alt tag](./lb.JPG)
+![alt tag](./load-balancer.svg)
 
 This sample deploys an internet-facing load balancer. It then creates and deploys two Azure virtual machines behind the load balancer. For a detailed overview of internet-facing load balancers, see [Internet-facing load balancer overview](https://azure.microsoft.com/documentation/articles/load-balancer-internet-overview/).
 
@@ -34,25 +34,23 @@ You can get more information about load balancer components with Azure resource 
 
 The sample performs the following tasks to create the load balancer and the load-balanced virtual machines: 
 
-1. Create a resource group
-4. Create a public IP
-5. Build the load balancer payload
-  1. Build a front-end IP pool
-  2. Build a back-end address pool
-  3. Build a health probe
-  4. Build a load balancer rule
-  5. Build inbound NAT rule 1
-  6. Build inbound NAT rule 2
-6. Create the load balancer with the above payload
-2. Create a virtual network (vnet)
-3. Create a subnet
-7. Create NIC 1
-8. Create NIC 2
-9. Find an Ubutnu VM image
-10. Create an availability set
-11. Create the first VM: Web1
-12. Create the second VM: Web2
-13. Delete the resource group and the resources created in the previous steps
+1. Create Resource group
+2. Create VNet
+3. Create PublicIP for the Bastion Host
+4. Create Bastion Subnet
+5. Create Bastion Host
+6. Create Network Security Group
+7. Create Network Security Group Rule
+8. Create Backend Servers - Standard
+9. Create Network Interfaces for the VMs
+10. Create VMs
+11. Create Load Balancer
+12. Create Health Probe
+13. Create Load Balancer Rule
+14. Add VMs to Load Balancer Backend Pool
+15. Create NIC for VM to test
+16. Create VM for test
+17. Delete Resource group and everything in it
 
 ## Run this sample
 
