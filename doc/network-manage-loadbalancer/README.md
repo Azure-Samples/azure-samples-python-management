@@ -10,19 +10,25 @@ urlFragment: network-python-manage-loadbalancer
 
 # Getting Started with Azure Resource Manager for load balancers in Python
 
-This sample shows how to manage a load balancer using the Azure Resource Manager APIs for Python.
-
-You can use a load balancer to provide high availability for your workloads in Azure. An Azure load balancer is a Layer-4 (TCP, UDP) type load balancer that distributes incoming traffic among healthy service instances in cloud services or virtual machines defined in a load balancer set.
+An Azure load balancer is a Layer-4 (TCP, UDP) type load balancer that distributes incoming traffic among healthy service instances in cloud services or virtual machines defined in a load balancer set. You can use a load balancer to provide high availability for your workloads in Azure. 
 
 For a detailed overview of Azure load balancers, see [Azure Load Balancer overview](https://azure.microsoft.com/documentation/articles/load-balancer-overview/).
 
 ![alt tag](./load-balancer.svg)
 
-This sample deploys an internet-facing load balancer. It then creates and deploys two Azure virtual machines behind the load balancer. For a detailed overview of internet-facing load balancers, see [Internet-facing load balancer overview](https://azure.microsoft.com/documentation/articles/load-balancer-internet-overview/).
+Attached to this doc are samples that show how to manage both a pulic load balancer with outbound rules and an internal load balancer using the Azure Resource Manager APIs for Python. The samples deploy their respective load balancer then creates and deploys three Azure virtual machines behind the load balancer.
 
-To deploy an internet-facing load balancer, you'll need to create and configure the following objects.
+To deploy a public load balancer with outbound rules, you'll need to create and configure the following objects.
 
 - Front end IP configuration - contains public IP addresses for incoming network traffic. 
+- Back end address pool - contains network interfaces (NICs) for the virtual machines to receive network traffic from the load balancer. 
+- Load balancing rules - contains rules mapping a public port on the load balancer to port in the back end address pool.
+- Inbound NAT rules - contains rules mapping a public port on the load balancer to a port for a specific virtual machine in the back end address pool.
+- Probes - contains health probes used to check availability of virtual machines instances in the back end address pool.
+- Outbound rules - contains public IP address for outbound network traffic. 
+
+To deploy an internal load balancer, you'll need to create and configure the following objects.
+
 - Back end address pool - contains network interfaces (NICs) for the virtual machines to receive network traffic from the load balancer. 
 - Load balancing rules - contains rules mapping a public port on the load balancer to port in the back end address pool.
 - Inbound NAT rules - contains rules mapping a public port on the load balancer to a port for a specific virtual machine in the back end address pool.
@@ -30,7 +36,36 @@ To deploy an internet-facing load balancer, you'll need to create and configure 
 
 You can get more information about load balancer components with Azure resource manager at [Azure Resource Manager support for Load Balancer](https://azure.microsoft.com/documentation/articles/load-balancer-arm/).
 
-## Tasks performed in this sample
+## Tasks performed in these samples
+
+### Public load balancer with outbound rules
+
+The sample performs the following tasks to create the load balancer and the load-balanced virtual machines: 
+
+1. Create Resource group
+2. Create VNet
+3. Create PublicIP for the Bastion Host
+4. Create Bastion Subnet
+5. Create Bastion Host
+6. Create Network Security Group
+7. Create Network Security Group Rule
+8. Create Backend Servers - Standard
+9. Create Network Interfaces for the VMs
+10. Create VMs
+11. Create PublicIP for the Load Balacer
+12. Create Load Balancer
+13. Create Health Probe
+14. Create Load Balancer Rule
+15. Add VMs to Load Balancer Backend Pool
+16. Create PublicIP for the Outbound Connectivity
+17. Create Frontend IP Configuration
+18. Create Outbound Pool
+19. Create Oubound Rule for the Outbound Backend Pool
+20. Add VMs to the Outbound Pool
+21. Get the PublicIP Address of the Load Balancer
+22. Delete Resource group and everything in it
+
+### Internal load balancer
 
 The sample performs the following tasks to create the load balancer and the load-balanced virtual machines: 
 
