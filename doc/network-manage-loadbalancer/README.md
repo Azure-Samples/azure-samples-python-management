@@ -4,11 +4,11 @@ languages:
 - python
 products:
 - azure
-description: "This sample shows how to manage a load balancer using the Azure Resource Manager APIs for Python."
+description: "This doc shows how to manage a public load balancer with outbound rules and an internal load balancer using the Azure Resource Manager APIs for Python."
 urlFragment: network-python-manage-loadbalancer
 ---
 
-# Getting Started with Azure Resource Manager for load balancers in Python
+# Getting Started with Azure Resource Manager for public and internal load balancers in Python
 
 An Azure load balancer is a Layer-4 (TCP, UDP) type load balancer that distributes incoming traffic among healthy service instances in cloud services or virtual machines defined in a load balancer set. You can use a load balancer to provide high availability for your workloads in Azure. 
 
@@ -91,38 +91,56 @@ The sample performs the following tasks to create the load balancer and the load
 
 1. If you don't already have a Microsoft Azure subscription, you can register for a [free trial account](http://go.microsoft.com/fwlink/?LinkId=330212).
 
-1. Install [Python](https://www.python.org/downloads/) if you haven't already.
+2. Install [Python](https://www.python.org/downloads/) if you haven't already.
 
-2. We recommend using a [virtual environment](https://docs.python.org/3/tutorial/venv.html) to run this example, but it's not mandatory. You can initialize a virtual environment this way:
+3. We recommend using a [virtual environment](https://docs.python.org/3/tutorial/venv.html) to run this example, but it's not mandatory. You can initialize a virtual environment this way:
 
-	    pip install virtualenv
-	    virtualenv mytestenv
-	    cd mytestenv
-	    source bin/activate
+       python -m venv mytestenv
+       cd mytestenv
+       
+       # Windows command
+       Scripts\activate.bat
+       # PowerShell
+       Scripts\activate.ps1
+       # Linux
+       source bin/activate
 
-3. Clone the sample repository.
-    
+4. Clone the sample repository.
+   
 	    git clone https://github.com/Azure-Samples/network-python-manage-loadbalancer.git    
 
-4. Install the dependencies using pip.
+5. Install the dependencies using pip.
 
 	    cd network-python-manage-loadbalancer
 	    pip install -r requirements.txt    
 
-5. Create an Azure service principal, using 
+6. Create an Azure service principal, using 
 [Azure CLI](http://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal-cli/),
 [PowerShell](http://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal/)
 or [Azure Portal](http://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/).
 
-6. Export these environment variables into your current shell. 
-    
-	    export AZURE_TENANT_ID={your tenant ID}
-	    export AZURE_CLIENT_ID={your client ID}
-	    export AZURE_CLIENT_SECRET={your client secret}
-	    export AZURE_SUBSCRIPTION_ID={your subscription ID}
-    
-7. Run the sample for public load balancer.
-    
+7. Export these environment variables into your current shell. 
+   
+       # Windows command
+       SET AZURE_TENANT_ID={your tenant ID}
+       SET AZURE_CLIENT_ID={your client ID}
+       SET AZURE_CLIENT_SECRET={your client secret}
+       SET AZURE_SUBSCRIPTION_ID={your subscription ID}
+       
+       # PowerShell
+       $AZURE_TENANT_ID="your tenant ID"
+       $AZURE_CLIENT_ID="your client ID"
+       $AZURE_CLIENT_SECRET="your client secret"
+       $AZURE_SUBSCRIPTION_ID="your subscription ID"
+       
+       # Linux
+       export AZURE_TENANT_ID={your tenant ID}
+       export AZURE_CLIENT_ID={your client ID}
+       export AZURE_CLIENT_SECRET={your client secret}
+       export AZURE_SUBSCRIPTION_ID={your subscription ID}
+   
+8. Run the sample for public load balancer.
+   
 	    python example_public_load_balancer.py
    Or
    

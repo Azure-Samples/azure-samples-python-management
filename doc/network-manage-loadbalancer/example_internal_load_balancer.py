@@ -68,23 +68,6 @@ NIC_TEST_NAME = 'myNicTestVM'
 
 # VM Test
 VM_TEST_NAME = 'myTestVM'
-#################################
-
-# Single IP for the outbound connectivity
-PUBLIC_IP_OB_NAME = 'myPublicIPOutbound'
-
-# Public IP prefix for the outbound connectivity
-PUBLIC_IP_PREDIX_OB_NAME = 'myPublicIPPrefixOutbound'
-PUBLIC_IP_PREDIX_OB_LENGTH = 28
-
-# Outbound frontend IP configuration
-FIP_OB_NAME = 'myFrontEndOutbound'
-
-# Outbound pool
-OB_POOL_NAME = 'myBackendPoolOutbound'
-
-# Oubtbound rule
-OB_RULE = 'myOutboundRule'
 
 # Manage resources and resource groups - create, update and delete a resource group,
 # deploy a solution into a resource group, export an ARM template. Create, read, update
