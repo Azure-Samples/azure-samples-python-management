@@ -121,10 +121,10 @@ or [Azure Portal](http://azure.microsoft.com/documentation/articles/resource-gro
 
 7. Export these environment variables into your current shell. 
    
-	    # Windows command
-	    SET AZURE_TENANT_ID={your tenant ID}
-	    SET AZURE_CLIENT_ID={your client ID}
-	    SET AZURE_CLIENT_SECRET={your client secret}
+       # Windows command
+       SET AZURE_TENANT_ID={your tenant ID}
+       SET AZURE_CLIENT_ID={your client ID}
+       SET AZURE_CLIENT_SECRET={your client secret}
        SET AZURE_SUBSCRIPTION_ID={your subscription ID}
        
        # PowerShell
