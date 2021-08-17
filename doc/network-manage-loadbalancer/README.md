@@ -91,7 +91,7 @@ The sample performs the following tasks to create the load balancer and the load
 
 1. If you don't already have a Microsoft Azure subscription, you can register for a [free trial account](http://go.microsoft.com/fwlink/?LinkId=330212).
 
-1. Install [Python](https://www.python.org/downloads/) if you haven't already.
+2. Install [Python](https://www.python.org/downloads/) if you haven't already.
 
 3. We recommend using a [virtual environment](https://docs.python.org/3/tutorial/venv.html) to run this example, but it's not mandatory. You can initialize a virtual environment this way:
 
