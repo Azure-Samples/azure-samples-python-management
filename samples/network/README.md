@@ -89,6 +89,6 @@ Each file is a separate code sample that no dependency on other files. You can l
 
 - https://github.com/Azure/azure-sdk-for-python
 
-## Additional doc
+## Additional documentation
 
 - Load balancer : https://github.com/Azure-Samples/azure-samples-python-management/tree/master/doc/network-manage-loadbalancer
