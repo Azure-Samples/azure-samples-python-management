@@ -91,4 +91,4 @@ Each file is a separate code sample that no dependency on other files. You can l
 
 ## Additional documentation
 
-- Load balancer : https://github.com/Azure-Samples/azure-samples-python-management/tree/master/doc/network-manage-loadbalancer
+- [Getting started with public and internal load balancers in Python](../../doc/network-manage-loadbalancer/README.md)
