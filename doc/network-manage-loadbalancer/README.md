@@ -29,9 +29,10 @@ To deploy a public load balancer with outbound rules, you'll need to create and 
 
 To deploy an internal load balancer, you'll need to create and configure the following objects.
 
+- Front end IP configuration - contains private IP addresses for incoming network traffic. 
 - Back end address pool - contains network interfaces (NICs) for the virtual machines to receive network traffic from the load balancer. 
-- Load balancing rules - contains rules mapping a public port on the load balancer to port in the back end address pool.
-- Inbound NAT rules - contains rules mapping a public port on the load balancer to a port for a specific virtual machine in the back end address pool.
+- Load balancing rules - contains rules mapping a private port on the load balancer to port in the back end address pool.
+- Inbound NAT rules - contains rules mapping a private port on the load balancer to a port for a specific virtual machine in the back end address pool.
 - Probes - contains health probes used to check availability of virtual machines instances in the back end address pool.
 
 You can get more information about load balancer components with Azure resource manager at [Azure Resource Manager support for Load Balancer](https://azure.microsoft.com/documentation/articles/load-balancer-arm/).
