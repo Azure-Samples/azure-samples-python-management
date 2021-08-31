@@ -1,3 +1,4 @@
 azure-identity
 azure-mgmt-resource==15.0.0
-azure-mgmt-cosmosdb==6.0.0b1
+azure-mgmt-cosmosdb==6.4.0
+azure-cosmos==4.2.0
