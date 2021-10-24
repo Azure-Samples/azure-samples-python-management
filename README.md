@@ -46,6 +46,7 @@ Samples:
 - [Service Bus](https://github.com/Azure-Samples/azure-samples-python-management/tree/master/samples/servicebus)
 - [Sql](https://github.com/Azure-Samples/azure-samples-python-management/tree/master/samples/sql)
 - [Storage](https://github.com/Azure-Samples/azure-samples-python-management/tree/master/samples/storage)
+- [Test Base](https://github.com/Azure-Samples/azure-samples-python-management/tree/master/samples/testbase)
 
 Additional Documentation & Resources
 - [Getting started with public and internal load balancers in Python](doc/network-manage-loadbalancer)
