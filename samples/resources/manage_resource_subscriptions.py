@@ -10,13 +10,10 @@ from azure.mgmt.resource.subscriptions import SubscriptionClient
 
 
 def main():
-    SUBSCRIPTION_ID = os.environ.get("SUBSCRIPTION_ID", None)
-
     # Create client
     # For other authentication approaches, please see: https://pypi.org/project/azure-identity/
     subscription_client = SubscriptionClient(
-        credential=DefaultAzureCredential(),
-        subscription_id=SUBSCRIPTION_ID
+        credential=DefaultAzureCredential()
     )
 
     # List subscriptions
@@ -24,6 +21,7 @@ def main():
     result = [item for item in page_result]
     for item in result:
         print(item.subscription_id)
+        print(item.tags)
 
 
 if __name__ == "__main__":
