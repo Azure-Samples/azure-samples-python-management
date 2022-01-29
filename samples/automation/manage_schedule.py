@@ -59,8 +59,8 @@ def main():
         {
           "name": SCHEDULE,
           "description": "my description of schedule goes here",
-          "start_time": "2022-01-29T15:10:00.2494819Z",
-          "expiry_time": "2022-01-29T15:15:57.2494819Z",
+          "start_time": "2022-01-29T15:15:00.2494819Z",
+          "expiry_time": "2022-01-29T15:20:57.2494819Z",
           "interval": "1",
           "frequency": "Hour"
         }
