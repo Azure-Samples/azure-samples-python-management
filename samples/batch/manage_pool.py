@@ -7,7 +7,7 @@
 import os
 
 from azure.identity import DefaultAzureCredential
-from azure.mgmt.batch import BatchManagement
+from azure.mgmt.batch import BatchManagementClient
 from azure.mgmt.storage import StorageManagementClient
 from azure.mgmt.resource import ResourceManagementClient
 
@@ -26,7 +26,7 @@ def main():
         credential=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID
     )
-    batch_client = BatchManagement(
+    batch_client = BatchManagementClient(
         credential=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID
     )
@@ -90,7 +90,7 @@ def main():
     # - end -
 
     # Create pool
-    pool = batch_client.pool.begin_create(
+    pool = batch_client.pool.create(
         GROUP_NAME,
         ACCOUNT,
         POOL,
@@ -123,7 +123,7 @@ def main():
                 }
             }
         }
-    ).result()
+    )
     print("Create pool:\n{}".format(pool))
 
     # Get pool
