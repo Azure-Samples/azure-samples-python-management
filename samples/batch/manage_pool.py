@@ -116,7 +116,7 @@ def main():
                 }
             },
 
-            # If you want to create your pool with identity, please cancel the notes below.Remember to fill in your own identity name on "your identity name"
+            # If you want to create your pool with identity, please cancel the notes below.Remember to fill in your own identity name on "your identity name"But first you have to create an identity in azure
 
             # "identity": {
             #     "type": "UserAssigned",
