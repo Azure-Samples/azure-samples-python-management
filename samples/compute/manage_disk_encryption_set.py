@@ -17,9 +17,10 @@ def main():
 
     SUBSCRIPTION_ID = os.environ.get("SUBSCRIPTION_ID", None)
     TENANT_ID = os.environ.get("AZURE_TENANT_ID", None)
-    DISK_ENCRYPTION_SET_NAME = "diskencryptionsetxxx"
+    OBJECT_ID = "your object id"
+    DISK_ENCRYPTION_SET_NAME = "diskencryptionsetx"
     GROUP_NAME = "testgroupx"
-    KEY_VAULT = "keyvaultxyzxxxxx"
+    KEY_VAULT = "keyvaultx"
 
     # Create client
     # For other authentication approaches, please see: https://pypi.org/project/azure-identity/
@@ -37,10 +38,11 @@ def main():
     )
 
     # Create resource group
-    resource_client.resource_groups.create_or_update(
+    resource_group = resource_client.resource_groups.create_or_update(
         GROUP_NAME,
         {"location": "eastus"}
     )
+    print("Created a resource group:\n{}".format(resource_group))
 
     # Create key
     vault = keyvault_client.vaults.begin_create_or_update(
@@ -57,7 +59,7 @@ def main():
             "access_policies": [
                 {
                 "tenant_id": TENANT_ID,
-                "object_id": "123743cc-88ef-49ee-920e-13958fe5697d",
+                "object_id": OBJECT_ID,
                 "permissions": {
                     "keys": [
                     "encrypt",
@@ -84,6 +86,7 @@ def main():
             }
         }
     ).result()
+    print("Created a key:\n{}".format(vault))
 
     key_client = KeyClient(vault.properties.vault_uri, DefaultAzureCredential())
     
