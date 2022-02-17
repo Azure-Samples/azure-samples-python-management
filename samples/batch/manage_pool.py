@@ -7,7 +7,7 @@
 import os
 
 from azure.identity import DefaultAzureCredential
-from azure.mgmt.batch import BatchManagement
+from azure.mgmt.batch import BatchManagementClient
 from azure.mgmt.storage import StorageManagementClient
 from azure.mgmt.resource import ResourceManagementClient
 
@@ -26,7 +26,7 @@ def main():
         credential=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID
     )
-    batch_client = BatchManagement(
+    batch_client = BatchManagementClient(
         credential=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID
     )
@@ -90,40 +90,43 @@ def main():
     # - end -
 
     # Create pool
-    pool = batch_client.pool.begin_create(
+    pool = batch_client.pool.create(
         GROUP_NAME,
         ACCOUNT,
         POOL,
         {
-            "display_name": "test_pass_pool",
-            "vm_size": "small",
-            "deployment_configuration": {
-                "cloud_service_configuration": {
-                    "os_family": "5"
+            "properties": {
+                "vmSize": "STANDARD_D4",
+                "deploymentConfiguration": {
+                    "virtualMachineConfiguration": {
+                        "imageReference": {
+                            "publisher": "Canonical",
+                            "offer": "UbuntuServer",
+                            "sku": "18.04-LTS",
+                            "version": "latest"
+                        },
+                        "nodeAgentSkuId": "batch.node.ubuntu 18.04"
+                    }
+                },
+                "scaleSettings": {
+                    "autoScale": {
+                        "formula": "$TargetDedicatedNodes=1",
+                        "evaluationInterval": "PT5M"
+                    }
                 }
             },
-            "start_task": {
-                "command_line": "cmd.exe /c \"echo hello world\"",
-                "resource_files": [
-                    {
-                        "http_url": "https://blobsource.com",
-                        "file_path": "filename.txt"
-                    }
-                ],
-                "environment_settings": [
-                    {
-                        "name": "ENV_VAR",
-                        "value": "env_value"
-                    }
-                ],
-                "user_identity": {
-                    "auto_user": {
-                        "elevation_level": "admin"
-                    }
-                }
-            }
+
+            # If you want to create your pool with identity, please cancel the notes below.Remember to fill in your own identity name on "your identity name"But first you have to create an identity in azure
+
+            # "identity": {
+            #     "type": "UserAssigned",
+            #     "userAssignedIdentities": {
+            #         "/subscriptions/"+SUBSCRIPTION_ID+"/resourceGroups/"+GROUP_NAME+"/providers/Microsoft.ManagedIdentity/userAssignedIdentities/"+"Your Identity Name": {}
+            #     }
+            #
+            # }
         }
-    ).result()
+    )
     print("Create pool:\n{}".format(pool))
 
     # Get pool
