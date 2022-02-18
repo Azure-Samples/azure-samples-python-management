@@ -18,18 +18,34 @@ def main():
     )
     nmclient = NetworkManagementClient(credentials, subscription)
 
-    GROUP_NAME = 'testgroupx'  # Resource groups name
-    VIRTUAL_NETWORK_NAME = 'virtualnetworkxx'
-    NEW_VIRTUAL_NETWORK_GATEWAY= 'newgateway'
+    GROUP_NAME = 'testgroup1'  # Resource groups name
+    VIRTUAL_NETWORK_NAME = 'virtualnetworkx1'
+    NEW_VIRTUAL_NETWORK_GATEWAY= 'newgateway1'
     SUBNET = 'GatewaySubnet'  # Must be `GatewaySubnet`
-    PUBLIC_IP_ADDRESS_NAME = 'publicipaddressxxxx'
+    PUBLIC_IP_ADDRESS_NAME = 'publicipaddressxxx1'
     IP_CONFIGURATION_NAME = 'default'
-    root_cert = "xxxxxxx"  # root certification
+    LOCATION = 'westus'
+    root_cert = '''MIIC5zCCAc+gAwIBAgIQTSvj+DXI4ZRDHGoSpD6iwTANBgkqhkiG9w0BAQsFADAW
+MRQwEgYDVQQDDAtQMlNSb290Q2VydDAeFw0yMjAyMTYwODQ1NTNaFw0yMzAyMTYw
+OTA1NTNaMBYxFDASBgNVBAMMC1AyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEF
+AAOCAQ8AMIIBCgKCAQEA17o3fyrT0+ioAXuchiR5JLa+vTQnMNzhAYngB5nen+sq
+s7eIQ64a6HSCRTHRV+KvxdF+PXgq1z/tNxbzv60bJ2x40jUAPSQROV5v5WQnJ2Yj
+G/3DhiGdCho6+xyQP1yqdg+FWI5Z4R2TMz24xw3w5QJ3+9xljL9x3y2JXKb9QHKa
+VwwZGgX5BYepkJIq7m9PRl0YwHfQ83/nm1RHMfwtgXVtHdvsURSKK6xvezAV40FF
+iKyO22wef4AHqmddFyJm/xiWUdU3KPYjujAH1QmjBVgamTIcpOGiNr4+9+I0hWFe
+hf3O6wEVll4jcmErwOD/mwZ8EIN3l49dVeBDt6wNcQIDAQABozEwLzAOBgNVHQ8B
+Af8EBAMCAgQwHQYDVR0OBBYEFKBW9GjSks02EY8R47LHyfbHIC1/MA0GCSqGSIb3
+DQEBCwUAA4IBAQAar4bMcpVYV457vpeYNSiymUcqEs+eFJ8kpf41Riv0xsbUOJvI
+vQmgfeYQQfJnJy2QR42prQkxDxmA1sA9OZ/imFP5w9KtWWcRdqOqOYIQLimSVD/0
+WMJKG/52pe0ThWHQFBfzwem1x1hn4FTKaWoweZdfGmUJDxPWWWXdBXuHJK6YVfid
+LRuLIW4JAmsFW4BngnA5xsylqwYt/OZs5QoonZnWiJndBSzRQOTaF6Elk9YsaTRt
+iTQRaf3NJY8n8Gfiv6qAIFySslc0UNbM1UCbJli3W8TryvLyKceOoCmkXqk7wpVj
+fTXj3iNf24BhY4sF/UtDVyWxKSWtbgPSr8Qs'''  # root certification
 
     # Create resource group
     resource_client.resource_groups.create_or_update(
         GROUP_NAME,
-        {"location": "westus"}
+        {"location": LOCATION}
     )
 
     # - init depended resources -
@@ -37,7 +53,7 @@ def main():
         GROUP_NAME,
         PUBLIC_IP_ADDRESS_NAME,
         {
-            'location': "eastus",
+            'location': LOCATION,
             'public_ip_allocation_method': 'Dynamic',
             'idle_timeout_in_minutes': 4
         }
@@ -52,7 +68,7 @@ def main():
                     "10.0.0.0/16"
                 ]
             },
-            "location": "eastus"
+            "location": LOCATION
         }
     ).result()
 
@@ -88,7 +104,7 @@ def main():
             vpn_client_protocols=["OpenVPN"],
         ),
         vpn_gateway_generation="Generation2",
-        location="westus"
+        location=LOCATION
     )
 
     # Create virtual network gateway
