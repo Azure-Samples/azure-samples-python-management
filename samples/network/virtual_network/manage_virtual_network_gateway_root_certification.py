@@ -2,6 +2,7 @@ import os
 
 from azure.identity import DefaultAzureCredential
 from azure.mgmt.network import NetworkManagementClient
+from azure.mgmt.resource import ResourceManagementClient
 from azure.mgmt.network.models import VirtualNetworkGateway, VirtualNetworkGatewayIPConfiguration, SubResource, \
     VirtualNetworkGatewaySku, VpnClientConfiguration, AddressSpace, VpnClientRootCertificate
 
@@ -11,6 +12,10 @@ def main():
     credentials = DefaultAzureCredential()
     subscription = os.getenv('SUBSCRIPTION_ID')
 
+    resource_client = ResourceManagementClient(
+        credential=credentials,
+        subscription_id=subscription
+    )
     nmclient = NetworkManagementClient(credentials, subscription)
 
     GROUP_NAME = 'testgroupx'  # Resource groups name
@@ -20,6 +25,46 @@ def main():
     PUBLIC_IP_ADDRESS_NAME = 'publicipaddressxxxx'
     IP_CONFIGURATION_NAME = 'default'
     root_cert = "xxxxxxx"  # root certification
+
+    # Create resource group
+    resource_client.resource_groups.create_or_update(
+        GROUP_NAME,
+        {"location": "westus"}
+    )
+
+    # - init depended resources -
+    nmclient.public_ip_addresses.begin_create_or_update(
+        GROUP_NAME,
+        PUBLIC_IP_ADDRESS_NAME,
+        {
+            'location': "eastus",
+            'public_ip_allocation_method': 'Dynamic',
+            'idle_timeout_in_minutes': 4
+        }
+    )
+
+    nmclient.virtual_networks.begin_create_or_update(
+        GROUP_NAME,
+        VIRTUAL_NETWORK_NAME,
+        {
+            "address_space": {
+                "address_prefixes": [
+                    "10.0.0.0/16"
+                ]
+            },
+            "location": "eastus"
+        }
+    ).result()
+
+    # Create subnet
+    nmclient.subnets.begin_create_or_update(
+        GROUP_NAME,
+        VIRTUAL_NETWORK_NAME,
+        SUBNET,
+        {
+            "address_prefix": "10.0.0.0/24"
+        }
+    ).result()
 
     vn_para = VirtualNetworkGateway(
         ip_configurations=[VirtualNetworkGatewayIPConfiguration(
@@ -46,6 +91,7 @@ def main():
         location="westus"
     )
 
+    # Create virtual network gateway
     virtual_network_gateway = nmclient.virtual_network_gateways.begin_create_or_update(
         GROUP_NAME,
         NEW_VIRTUAL_NETWORK_GATEWAY,
