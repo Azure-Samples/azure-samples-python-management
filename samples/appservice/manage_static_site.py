@@ -36,7 +36,7 @@ def main():
     )
 
     # Create static site
-    static_site = web_client.static_sites.create_or_update_static_site(
+    static_site = web_client.static_sites.begin_create_or_update_static_site(
         GROUP_NAME,
         STATIC_SITE,
         {
@@ -64,7 +64,7 @@ def main():
     print("Get static site:\n{}".format(static_site))
 
     # Delete static site
-    static_site = web_client.static_sites.delete_static_site(
+    static_site = web_client.static_sites.begin_delete_static_site(
         GROUP_NAME,
         STATIC_SITE
     )
