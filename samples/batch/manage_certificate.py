@@ -90,7 +90,7 @@ def main():
     # - end -
 
     # Create certificate
-    certificate = batch_client.certificate.begin_create(
+    certificate = batch_client.certificate.create(
         GROUP_NAME,
         ACCOUNT,
         CERTIFICATE,
@@ -101,7 +101,7 @@ def main():
             'format': 'Pfx',
             'password': 'nodesdk'
         }
-    ).result()
+    )
     print("Create certificate:\n{}".format(certificate))
 
     # Get certificate
