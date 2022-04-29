@@ -38,12 +38,12 @@ export SUBSCRIPTION_ID="xxx"
 
 1.  If you don't already have it, [install Python](https://www.python.org/downloads/).
 
-    This sample (and the SDK) is compatible with Python 2.7, 3.3, 3.4, 3.5 and 3.6.
+    This sample (and the SDK) is compatible with Python >= 3.6.
 
 2.  General recommendation for Python development is to use a Virtual Environment.
     For more information, see https://docs.python.org/3/tutorial/venv.html
 
-    Install and initialize the virtual environment with the "venv" module on Python 3 (you must install [virtualenv](https://pypi.python.org/pypi/virtualenv) for Python 2.7):
+    Install and initialize the virtual environment with the "venv" module on Python 3:
 
     ```
     python -m venv mytestenv # Might be "python3" or "py -3.6" depending on your Python installation
