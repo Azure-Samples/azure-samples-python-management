@@ -34,7 +34,7 @@ def main():
     # Set variables
     resource_group = "<resource-group-name>" # replace with real resource group name
     testbase_account_name = "<testbaseaccount-name>" # replace with real test base account name
-    package_file_path = "<path-of-package-zip-file>" # replace with real path of the package zip file
+    package_file_path = "<path-of-package-zip-file>" # replace with real path of the package zip file, please refer to https://aka.ms/usl-package-outline for package structure
 
     # Create client
     testbase_client = TestBase(credential, subscription_id)
