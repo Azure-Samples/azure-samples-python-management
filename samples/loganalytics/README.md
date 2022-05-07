@@ -43,7 +43,7 @@ export SUBSCRIPTION_ID="xxx"
 2.  General recommendation for Python development is to use a Virtual Environment.
     For more information, see https://docs.python.org/3/tutorial/venv.html
 
-    Install and initialize the virtual environment with the "venv" module on Python 3 (you must install [virtualenv](https://pypi.python.org/pypi/virtualenv) for Python 2.7):
+    Install and initialize the virtual environment with the "venv" module on Python 3 (you must install [virtualenv](https://pypi.python.org/pypi/virtualenv) for Python 3.6+):
 
     ```
     python -m venv mytestenv # Might be "python3" or "py -3.6" depending on your Python installation
