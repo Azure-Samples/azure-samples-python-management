@@ -25,11 +25,12 @@ def main():
         GROUP_NAME,
         workspace_name,
         {"location": "eastus"}
-    )
+    ).result()
     print("Create consumption:\n{}\n".format(loganalytics))
 
     loganalytics=loganalytics_client_gov.workspaces.list()
-    print("List consumption:\n{}\n".format(loganalytics))
+    for i in loganalytics:
+        print(i)
 
 
     loganalytics=loganalytics_client_gov.workspaces.get(
