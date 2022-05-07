@@ -29,15 +29,15 @@ def main():
     print("Create consumption:\n{}\n".format(loganalytics))
 
     loganalytics=loganalytics_client_gov.workspaces.list()
-    for i in loganalytics:
-        print(i)
-
+    print("List consumption:")
+    for loganalytics_list in loganalytics:
+        print(loganalytics_list)
 
     loganalytics=loganalytics_client_gov.workspaces.get(
         GROUP_NAME,
         workspace_name
     )
-    print("Get consumption:\n{}\n".format(loganalytics))
+    print("\nGet consumption:\n{}\n".format(loganalytics))
 
 
     loganalytics=loganalytics_client_gov.workspaces.begin_delete(
