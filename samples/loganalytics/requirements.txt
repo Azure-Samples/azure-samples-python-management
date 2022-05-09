@@ -1,0 +1,4 @@
+azure-identity
+azure-mgmt-resource==20.0.0
+azure-mgmt-loganalytics==12.0.0
+msrestazure==0.6.4
