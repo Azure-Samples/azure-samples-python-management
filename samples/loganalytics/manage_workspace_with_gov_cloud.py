@@ -45,7 +45,7 @@ def main():
     loganalytics = loganalytics_client_gov.workspaces.begin_delete(
         GROUP_NAME,
         workspace_name
-    )
+    ).result()
     print("Delete consumption:\n{}\n".format(loganalytics))
 
 
