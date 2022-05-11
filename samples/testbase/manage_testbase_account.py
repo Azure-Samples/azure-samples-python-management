@@ -29,7 +29,7 @@ def main():
     subscription_id = os.environ.get("SUBSCRIPTION_ID", None)
 
     # Set variables
-    resource_group = "<resource-group-name>"
+    resource_group = "<resource-group-name>" # replace with real resource group name
     testBaseAccount_name = "contoso-testbaseAccount"
     testBaseAccount_location = "global"
     sku_name = "S0"
@@ -37,7 +37,7 @@ def main():
     sku_locations = {"global"}
 
     # Create client
-    testBase_client = TestBase(credential, subscription_id)
+    testbase_client = TestBase(credential, subscription_id)
 
     # Create sku for TestBaseAccount
     sku = TestBaseAccountSKU(name=sku_name, tier=sku_tier, locations=sku_locations)
@@ -45,11 +45,11 @@ def main():
     # Create TestBaseAccount
     print("Creating TestBaseAccount...")
     parameters = TestBaseAccountResource(location=testBaseAccount_location, sku=sku)
-    testBaseAccount = testBase_client.test_base_accounts.begin_create(resource_group, testBaseAccount_name, parameters).result()
+    testBaseAccount = testbase_client.test_base_accounts.begin_create(resource_group, testBaseAccount_name, parameters).result()
 
     # Get TestBaseAccount
     print("Getting TestBaseAccount...")
-    result = testBase_client.test_base_accounts.get(resource_group, testBaseAccount_name)
+    result = testbase_client.test_base_accounts.get(resource_group, testBaseAccount_name)
     print(_format_json(result))
 
 if __name__ == "__main__":
