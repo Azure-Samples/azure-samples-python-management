@@ -1,0 +1,4 @@
+azure-identity
+azure-mgmt-resource==20.0.0
+azure-mgmt-costmanagement==3.0.0
+azure-mgmt-storage==20.0.0
