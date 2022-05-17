@@ -17,7 +17,7 @@ These code samples will show you how to manage costmanagement using Azure SDK fo
 This project framework provides examples for the following services:
 
 ### costmanagement
-* [] Using the Azure SDK for Python - costmanagement Management Library [azure-mgmt-costmanagement](https://pypi.org/project/azure-mgmt-costmanagement/) for the [costmanagement API](https://docs.microsoft.com/en-us/rest/api/costmanagement/)
+* [] Using the Azure SDK for Python - costmanagement Management Library [azure-mgmt-costmanagement](https://pypi.org/project/azure-mgmt-costmanagement/) for the [costmanagement API](https://docs.microsoft.com/en-us/rest/api/cost-management/)
 
 ## Getting Started
 
