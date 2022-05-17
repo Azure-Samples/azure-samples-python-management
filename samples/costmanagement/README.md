@@ -46,7 +46,7 @@ export SUBSCRIPTION_ID="xxx"
     Install and initialize the virtual environment with the "venv" module on Python 3.6+:
 
     ```
-    python -m venv mytestenv # Might be "python3" or "py -3.6" depending on your Python installation
+    python -m venv mytestenv # Might be "python3" or "py3.6" depending on your Python installation
     cd mytestenv
     source bin/activate      # Linux shell (Bash, ZSH, etc.) only
     ./scripts/activate       # PowerShell only
