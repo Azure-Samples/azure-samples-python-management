@@ -84,4 +84,6 @@ The sample files do not have dependency each other and each file represents an i
 
 ## Resources
 
-- https://github.com/Azure/azure-sdk-for-python
+- Python SDK: https://github.com/Azure/azure-sdk-for-python
+- Python SDK Doc: https://docs.microsoft.com/python/api/azure-mgmt-recoveryservicesbackup/?view=azure-python
+- Azure Cli Sample: https://docs.microsoft.com/azure/backup/quick-backup-vm-cli 
