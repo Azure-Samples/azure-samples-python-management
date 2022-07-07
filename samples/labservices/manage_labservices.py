@@ -16,11 +16,11 @@ from azure.mgmt.resource import ResourceManagementClient
 
 def main():
 
-    SUBSCRIPTION_ID = os.environ.get("SUBSCRIPTION_ID", None)
+    SUBSCRIPTION_ID = "<Subscription ID>"
     TIME = str(time.time()).replace('.','')
-    GROUP_NAME = "python_rg" + TIME
-    LABPLAN = "python_labplan" + TIME
-    LAB = "python_lab" + TIME
+    GROUP_NAME = "BellowsCollege_rg"
+    LABPLAN = "BellowsCollege_labplan"
+    LAB = "BellowsCollege_lab"
     LOCATION = 'southcentralus'    
 
     # Create clients
