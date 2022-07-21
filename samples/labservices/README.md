@@ -38,7 +38,8 @@ export SUBSCRIPTION_ID="xxx"
 
 1.  If you don't already have it, [install Python](https://www.python.org/downloads/).
 
-    This sample (and the SDK) is compatible with Python 2.7, 3.3, 3.4, 3.5 and 3.6.
+    This sample (and the SDK) is compatible with Python 3.6+.
+
 
 2.  General recommendation for Python development is to use a Virtual Environment.
     For more information, see https://docs.python.org/3/tutorial/venv.html
