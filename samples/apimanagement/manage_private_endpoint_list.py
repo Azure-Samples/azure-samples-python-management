@@ -30,9 +30,9 @@ apimanagement_parameters = ApiManagementServiceResource(sku=ApiManagementService
 apimanagement_service = apimanagement_client.api_management_service.begin_create_or_update(GROUP_NAME, SERVICE_NAME,
                                                                                            parameters=apimanagement_parameters).result()
 
-li = apimanagement_client.private_endpoint_connection.list_private_link_resources(GROUP_NAME, SERVICE_NAME)
+result = apimanagement_client.private_endpoint_connection.list_private_link_resources(GROUP_NAME, SERVICE_NAME)
 
-for i in li.value:
+for i in result.value:
     print(i)
 
 apimanagement_client.api_management_service.begin_delete(GROUP_NAME, SERVICE_NAME)
