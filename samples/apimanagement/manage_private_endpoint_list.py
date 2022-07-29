@@ -5,14 +5,12 @@ from azure.mgmt.resource import ResourceManagementClient
 from azure.mgmt.apimanagement import ApiManagementClient
 from azure.mgmt.apimanagement.models import ApiManagementServiceResource, ApiManagementServiceSkuProperties
 
-GROUP_NAME = 'testgroupx'
-LOCATION = 'eastus2'
-SERVICE_NAME = 'test-apimanager'
-PUBLISHER_NAME = 'foo'
-PUBLISHER_EMAIL = 'foo@foo.com'
-
-
 def main():
+    GROUP_NAME = 'testgroupx'
+    LOCATION = 'eastus2'
+    SERVICE_NAME = 'test-apimanager'
+    PUBLISHER_NAME = 'foo'
+    PUBLISHER_EMAIL = 'foo@foo.com'
     SUBSCRIPTION_ID = os.getenv('SUBSCRIPTION_ID')
 
     resource_client = ResourceManagementClient(
