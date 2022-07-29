@@ -8,6 +8,7 @@ To find the code samples for a particular service you are using, please click on
 
 Samples:
 - [Advisor](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/advisor)
+- [Api Management](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/apimanagement)
 - [AppConfiguration](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/appconfiguration)
 - [App Service](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/appservice)
 - [Authorization](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/authorization)
