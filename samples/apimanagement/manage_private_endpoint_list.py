@@ -11,8 +11,8 @@ SERVICE_NAME = 'test-apimanager'
 PUBLISHER_NAME = 'foo'
 PUBLISHER_EMAIL = 'foo@foo.com'
 
-def main():
 
+def main():
     SUBSCRIPTION_ID = os.getenv('SUBSCRIPTION_ID')
 
     resource_client = ResourceManagementClient(
@@ -47,6 +47,7 @@ def main():
     resource_client.resource_groups.begin_delete(GROUP_NAME)
 
     print('Finish')
+
 
 if __name__ == '__main__':
     main()
