@@ -1,134 +1,89 @@
-# Microsoft Azure SDK for Python
+---
+page_type: sample
+languages:
+- python
+products:
+- azure
+description: "These code samples will show you how to manage Automanage using Azure SDK for Python."
+urlFragment: Automanage
+---
 
-This is the Microsoft Azure Auto Manage Management Client Library.
-This package has been tested with Python 3.7+.
-For a more complete view of Azure libraries, see the [azure sdk python release](https://aka.ms/azsdk/python/all).
+# Getting started - Managing Automanage using Azure Python SDK
 
-## _Disclaimer_
+These code samples will show you how to manage Automanage using Azure SDK for Python.
 
-_Azure SDK Python packages support for Python 2.7 has ended 01 January 2022. For more information and questions, please refer to https://github.com/Azure/azure-sdk-for-python/issues/20691_
+## Features
 
-# Usage
+This project framework provides examples for the following services:
 
-## Examples
+### Automanage
+* [] Using the Azure SDK for Python - Automanage Management Library [azure-mgmt-automanage](https://pypi.org/project/azure-mgmt-automanage/) for the [Automanage API](https://docs.microsoft.com/en-us/rest/api/automanage/)
 
-#### Instantiate an Automanage Client
+`pip install azure-mgmt-automanage`
 
-Install the Azure Identity and Azure Automanage modules
-`pip install azure-identity`
-`pip install azure-mgmt-automanage==1.0.0`
+## Getting Started
 
-```python
-from azure.identity import DefaultAzureCredential
-from azure.mgmt.automanage import AutomanageClient
+### Prerequisites
 
-credential = DefaultAzureCredential()
-client = automanage.AutomanageClient(credential, "<subscription ID>")
+1. Before we run the samples, we need to make sure we have setup the credentials. Follow the instructions in [register a new application using Azure portal](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) to obtain `subscription id`,`client id`,`client secret`, and `application id`
+
+2. Store your credentials an environment variables.
+For example, in Linux-based OS, you can do
+```bash
+export AZURE_TENANT_ID="xxx"
+export AZURE_CLIENT_ID="xxx"
+export AZURE_CLIENT_SECRET="xxx"
+export SUBSCRIPTION_ID="xxx"
 ```
 
-#### Create or Update a Custom Automanage Configuration Profile
+### Installation
 
-Create or update a custom configuration profile by modifying the **ConfigurationProfile** properties.
+1.  If you don't already have it, [install Python](https://www.python.org/downloads/).
 
- ```python
-new_profile = {
-    "location": "eastus",
-    "tags": {},
-    "properties": {
-        "configuration": {
-            "Antimalware/Enable": True,
-            "Antimalware/EnableRealTimeProtection": True,
-            "Antimalware/RunScheduledScan": True,
-            "Antimalware/ScanType": "Quick",
-            "Antimalware/ScanDay": 7,
-            "Antimalware/ScanTimeInMinutes": 120,
-            "Backup/Enable": True,
-            "Backup/PolicyName": "dailyBackupPolicy",
-            "Backup/TimeZone": "UTC",
-            "Backup/InstantRpRetentionRangeInDays": 2,
-            "Backup/SchedulePolicy/ScheduleRunFrequency": "Daily",
-            "Backup/SchedulePolicy/SchedulePolicyType": "SimpleSchedulePolicy",
-            "Backup/RetentionPolicy/RetentionPolicyType": "LongTermRetentionPolicy",
-            "Backup/RetentionPolicy/DailySchedule/RetentionDuration/Count": 180,
-            "Backup/RetentionPolicy/DailySchedule/RetentionDuration/DurationType": "Days",
-            "WindowsAdminCenter/Enable": False,
-            "VMInsights/Enable": True,
-            "AzureSecurityCenter/Enable": True,
-            "UpdateManagement/Enable": True,
-            "ChangeTrackingAndInventory/Enable": True,
-            "GuestConfiguration/Enable": True,
-            "AutomationAccount/Enable": True,
-            "LogAnalytics/Enable": True,
-            "BootDiagnostics/Enable": True
-        }
-    }
-}
+    This sample (and the SDK) is compatible with Python 3.7+.
 
-client.configuration_profiles.create_or_update("configurationProfileName", "resourceGroupName", new_profile)
- ```
+2.  General recommendation for Python development is to use a Virtual Environment.
+    For more information, see https://docs.python.org/3/tutorial/venv.html
 
- #### Get an Automanage Configuration Profile
+    Install and initialize the virtual environment with the "venv" module on Python 3 (you must install [virtualenv](https://pypi.python.org/pypi/virtualenv) for Python 2.7):
 
- ```python
-profile = client.configuration_profiles.get("configurationProfileName", "resourceGroupName")
- ```
+    ```
+    python -m venv mytestenv # Might be "python3" or "py -3.6" depending on your Python installation
+    cd mytestenv
+    source bin/activate      # Linux shell (Bash, ZSH, etc.) only
+    ./scripts/activate       # PowerShell only
+    ./scripts/activate.bat   # Windows CMD only
+    ```
 
-#### Delete an Automanage Configuration Profile
+### Quickstart
 
- ```python
-client.configuration_profiles.delete("resourceGroupName", "configurationProfileName")
- ```
+1.  Clone the repository.
 
-#### Get an Automanage Profile Assignment
+    ```
+    git clone https://github.com/Azure-Samples/azure-samples-python-management.git
+    ```
 
-```python 
-assignment = client.configuration_profile_assignments.get("resourceGroupName", "default", "vmName")
-```
+2.  Install the dependencies using pip.
 
-#### Create an Assignment between a VM and an Automanage Best Practices Production Configuration Profile
- 
-The **Best Practices Profile** live at the tenant scope, so the **configurationProfile** path would be: `/providers/Microsoft.Automanage/bestPractices/AzureBestPracticesProduction`
+    ```
+    cd azure-samples-python-management/samples/automanage
+    pip install -r requirements.txt
+    ```
 
- ```python 
-assignment = {
-    "properties": {
-        "configurationProfile": "/providers/Microsoft.Automanage/bestPractices/AzureBestPracticesProduction",
-    }
-}
+## Demo
 
-# assignment name must be named 'default'
-client.configuration_profile_assignments.create_or_update("default", "resourceGroupName", "vmName", assignment)
- ```
+A demo app is included to show how to use the project.
 
-#### Create an Assignment between a VM and a Custom Automanage Configuration Profile
+To run the complete demo, execute `python example.py`
 
-**Custom Profiles** live within resource groups, so the **configurationProfile** path would be: `/subscriptions/<sub ID>/resourceGroups/resourceGroupName/providers/Microsoft.Automanage/configurationProfiles/configurationProfileName`
+To run each individual demo, point directly to the file. For example (i.e. not complete list):
 
+1. `python manage_private_endpoint_list.py`
 
-```python
-assignment = {
-    "properties": {
-        "configurationProfile": "/subscriptions/<sub ID>/resourceGroups/resourceGroupName/providers/Microsoft.Automanage/configurationProfiles/configurationProfileName"
-    }
-}
+If the script starts with `disable_***.py`, it means that it is unavailable now.
 
-# assignment name must be named 'default'
-client.configuration_profile_assignments.create_or_update("default", "resourceGroupName", "vmName", assignment)
+The sample files do not have dependency each other and each file represents an individual end-to-end scenario. Please look at the sample that contains the scenario you are interested in
 
-```
+## Resources
 
-To learn how to use this package, see the [quickstart guide](https://aka.ms/azsdk/python/mgmt)
- 
-For docs and references, see [Python SDK References](https://docs.microsoft.com/python/api/overview/azure/)
-Code samples for this package can be found at [Auto Manage Management](https://docs.microsoft.com/samples/browse/?languages=python&term=Getting%20started%20-%20Managing&terms=Getting%20started%20-%20Managing) on docs.microsoft.com.
-Additional code samples for different Azure services are available at [Samples Repo](https://aka.ms/azsdk/python/mgmt/samples)
-
-
-# Provide Feedback
-
-If you encounter any bugs or have suggestions, please file an issue in the
-[Issues](https://github.com/Azure/azure-sdk-for-python/issues)
-section of the project. 
-
-
-![Impressions](https://azure-sdk-impressions.azurewebsites.net/api/impressions/azure-sdk-for-python%2Fazure-mgmt-automanage%2FREADME.png)
+- https://github.com/Azure/azure-sdk-for-python
