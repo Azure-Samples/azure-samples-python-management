@@ -12,6 +12,7 @@ Samples:
 - [AppConfiguration](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/appconfiguration)
 - [App Service](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/appservice)
 - [Authorization](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/authorization)
+- [Automanage](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/automanage)
 - [Batch](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/batch)
 - [CDN](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/cdn)
 - [Cognitive Services](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/cognitiveservices)
