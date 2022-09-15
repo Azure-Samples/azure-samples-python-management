@@ -5,6 +5,7 @@ from azure.identity import DefaultAzureCredential
 from azure.mgmt.network import NetworkManagementClient
 
 
+# This sample is just to show how to customize response if needed
 def main():
 
     credentials = DefaultAzureCredential()
