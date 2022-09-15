@@ -6,6 +6,7 @@ from azure.mgmt.network import NetworkManagementClient
 from azure.mgmt.network.models import VirtualNetworkGateway
 
 
+# This sample is just to show how to customize request if needed
 def main():
     credentials = DefaultAzureCredential()
     subscription = os.getenv('SUBSCRIPTION_ID')
