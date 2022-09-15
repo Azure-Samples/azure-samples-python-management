@@ -3,8 +3,7 @@ import os
 
 from azure.identity import DefaultAzureCredential
 from azure.mgmt.network import NetworkManagementClient
-from azure.mgmt.network.models import VirtualNetworkGateway, VirtualNetworkGatewayIPConfiguration, SubResource, \
-    VirtualNetworkGatewaySku, VpnClientConfiguration, AddressSpace, VpnClientRootCertificate
+from azure.mgmt.network.models import VirtualNetworkGateway
 
 
 def main():
