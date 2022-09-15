@@ -15,9 +15,9 @@ def main():
         with open('result.json', 'w') as file:
             file.write(json.dumps(origin_req, indent=4))
 
-    nmclient = NetworkManagementClient(credentials, subscription)
+    client = NetworkManagementClient(credentials, subscription)
 
-    virtual_network_gateway = nmclient.virtual_network_gateways.begin_create_or_update(
+    virtual_network_gateway = client.virtual_network_gateways.begin_create_or_update(
         resource_group_name='GROUP_NAME',
         vm_name='NEW_VIRTUAL_NETWORK_GATEWAY',
         parameters='vn_para',
