@@ -16,9 +16,9 @@ def main():
         with open('result.json', 'w') as file:
             file.write(json.dumps(origin_req, indent=4))
 
-    nmclient = NetworkManagementClient(credentials, subscription)
+    client = NetworkManagementClient(credentials, subscription)
 
-    virtual_network_gateway = nmclient.network_managers.get(
+    virtual_network_gateway = client.network_managers.get(
         resource_group_name='resource_group_name',
         network_manager_name='network_manager_name',
         raw_response_hook=callback
