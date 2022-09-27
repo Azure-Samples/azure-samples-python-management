@@ -16,7 +16,7 @@ def main():
     LOCATION = 'eastus'
 
     compute_client = ComputeManagementClient(DefaultAzureCredential(), SUBSCRIPTION_ID)
-    create_result = compute_client.virtual_machine_run_commands.begin_create_or_update(
+    compute_client.virtual_machine_run_commands.begin_create_or_update(
         resource_group_name=GROUP_NAME,
         vm_name=VIRTUAL_MACHINE_NAME,
         run_command_name='mkdir',
