@@ -14,11 +14,7 @@ These code samples will show you how to manage Loganalytics using Azure SDK for 
 
 ## Features
 
-This project framework provides examples for the following services:
-
-### Loadtest Service
-* [] Using the Azure SDK for Python - Loadtestservice Management Library [azure-mgmt-loadtestservice](https://pypi.org/project/azure-mgmt-loadtestservice/) 
-* 
+This project framework provides examples for Azure Loadtest Service. [Read More about Loadtest Service](https://learn.microsoft.com/azure/load-testing/overview-what-is-azure-load-testing)
 ## Getting Started
 
 ### Prerequisites
@@ -43,15 +39,16 @@ export SUBSCRIPTION_ID="xxx"
 2.  General recommendation for Python development is to use a Virtual Environment.
     For more information, see https://docs.python.org/3/tutorial/venv.html
 
-    Install and initialize the virtual environment with the "venv" module on Python 3 (you must install [virtualenv](https://pypi.python.org/pypi/virtualenv) for Python 3.6+):
+    Install and initialize the virtual environment with the "venv" module on Python 3 (you must install [virtualenv](https://pypi.python.org/pypi/virtualenv) for Python 3.7+):
 
     ```
-    python -m venv mytestenv # Might be "python3" or "py -3.6" depending on your Python installation
+    python -m venv mytestenv # Might be "python3" or "py -3.7" depending on your Python installation
     cd mytestenv
     source bin/activate      # Linux shell (Bash, ZSH, etc.) only
     ./scripts/activate       # PowerShell only
     ./scripts/activate.bat   # Windows CMD only
     ```
+3. Install Loadtestservice Management Library [azure-mgmt-loadtestservice](https://pypi.org/project/azure-mgmt-loadtestservice/) from pypi in the virtual enviornment created.
 
 ### Quickstart
 
