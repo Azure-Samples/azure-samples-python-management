@@ -71,11 +71,6 @@ A demo app is included to show how to use the project.
 
 To run the complete demo, execute `python example.py`
 
-To run each individual demo, point directly to the file. For example (i.e. not complete list):
-
-1. `python creating_load_test_resource.py`
-
-
 The sample files do not have dependency each other and each file represents an individual end-to-end scenario. Please look at the sample that contains the scenario you are interested in
 
 ## Resources
