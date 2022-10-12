@@ -1,0 +1,3 @@
+azure-identity==1.11.0
+azure-mgmt-quota==1.0.0b2
+azure-mgmt-resource==21.2.0
