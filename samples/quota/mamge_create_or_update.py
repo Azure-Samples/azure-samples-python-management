@@ -20,13 +20,13 @@ def main():
 
     result = quota_client.quota.begin_create_or_update(
         resource_name=GROUP_NAME,
-        scope='/subscriptions/' + subscription + 'providers/Microsoft.Compute/location/easrus',
+        scope='/subscriptions/' + subscription + 'providers/Microsoft.Compute/location/eastus',
         create_quota_request={
             "properties": {
-                "limit": 200,
-                "name": {
-                    "value": GROUP_NAME
-                }
+                "limit": {
+                    "limit_object_type": "1000"
+                },
+                "resourceType": "dedicated"
             }
         }
     ).result()
