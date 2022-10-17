@@ -40,6 +40,7 @@ Samples:
 - [Notification Hubs](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/notificationhubs)
 - [Policy Insights](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/policyinsights)
 - [Recovery Services](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/recoveryservices)
+- [Quota](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/quota)
 - [Redis](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/redis)
 - [Relay](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/relay)
 - [Resource Graph](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/resourcegraph)
