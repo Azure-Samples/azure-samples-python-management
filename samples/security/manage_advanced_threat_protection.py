@@ -12,7 +12,7 @@ def main():
 
     # Creates or updates the Advanced Threat Protection settings on a specified resource.
     security_client.advanced_threat_protection.create(
-        resource_id='<resource_id>',  # Specify resource id
+        resource_id='<resource_id>',  # Specify resource id, e.g. "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/SampleRG/providers/Microsoft.Storage/storageAccounts/samplestorageaccount"
         advanced_threat_protection_setting={
             "isEnabled": True
         }
