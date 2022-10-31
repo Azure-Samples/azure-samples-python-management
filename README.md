@@ -47,6 +47,7 @@ Samples:
 - [Resources](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/resources)
 - [Scheduler](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/scheduler)
 - [Search](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/search)
+- [Security](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/security)
 - [Service Bus](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/servicebus)
 - [Sql](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/sql)
 - [Storage](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/storage)
