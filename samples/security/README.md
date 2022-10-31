@@ -17,7 +17,7 @@ These code samples will show you how to manage Security using Azure SDK for Pyth
 This project framework provides examples for the following services:
 
 ### Security
-* [] Using the Azure SDK for Python - Security Management Library [azure-mgmt-security](https://pypi.org/project/azure-mgmt-security/) for the [Security API](https://docs.microsoft.com/en-us/rest/api/security/)
+* [] Using the Azure SDK for Python - Security Management Library [azure-mgmt-security](https://pypi.org/project/azure-mgmt-security/) for the [Security API](https://review.learn.microsoft.com/python/api/overview/azure/security-center?view=azure-python&branch=main)
 
 `pip install azure-mgmt-security`
 
