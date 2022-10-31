@@ -1,0 +1,29 @@
+import os
+
+from azure.identity import DefaultAzureCredential
+from azure.mgmt.security import SecurityCenter
+
+
+def main():
+    credentials = DefaultAzureCredential()
+    subscription = os.getenv('SUBSCRIPTION_ID')
+
+    security_client = SecurityCenter(credentials, subscription)
+
+    # Creates or updates the Advanced Threat Protection settings on a specified resource.
+    security_client.advanced_threat_protection.create(
+        resource_id='<resource_id>',  # Specify resource id
+        advanced_threat_protection_setting={
+            "isEnabled": True
+        }
+    ).result()
+
+    # Gets the Advanced Threat Protection settings for the specified resource.
+    security_features = security_client.advanced_threat_protection.get(
+        resource_id='<resource_id>'  # Specify resource id
+    )
+    print(security_features)
+
+
+if __name__ == '__main__':
+    main()
