@@ -44,6 +44,7 @@ Samples:
 - [Redis](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/redis)
 - [Relay](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/relay)
 - [Resource Graph](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/resourcegraph)
+- [Resource Health](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/resourcehealth)
 - [Resources](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/resources)
 - [Scheduler](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/scheduler)
 - [Search](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/search)
