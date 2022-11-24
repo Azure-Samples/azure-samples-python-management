@@ -17,7 +17,7 @@ These code samples will show you how to manage Event Grid using Azure SDK for Py
 This project framework provides examples for the following services:
 
 ### Event Grid
-* [] Using the Azure SDK for Python - Event Grid Management Library [azure-mgmt-resourcehealth](https://pypi.org/project/azure-mgmt-resourcehealth/) for the [Event Grid API](https://docs.microsoft.com/en-us/rest/api/resourcehealth/)
+* [] Using the Azure SDK for Python - Event Grid Management Library [azure-mgmt-resourcehealth](https://pypi.org/project/azure-mgmt-resourcehealth/) for the [Resource Health API](https://docs.microsoft.com/en-us/rest/api/resourcehealth/)
 
 ## Getting Started
 
@@ -38,15 +38,15 @@ export SUBSCRIPTION_ID="xxx"
 
 1.  If you don't already have it, [install Python](https://www.python.org/downloads/).
 
-    This sample (and the SDK) is compatible with Python 2.7, 3.3, 3.4, 3.5 and 3.6.
+    This sample (and the SDK) is compatible with Python 3.7+.
 
 2.  General recommendation for Python development is to use a Virtual Environment.
     For more information, see https://docs.python.org/3/tutorial/venv.html
 
-    Install and initialize the virtual environment with the "venv" module on Python 3 (you must install [virtualenv](https://pypi.python.org/pypi/virtualenv) for Python 2.7):
+    Install and initialize the virtual environment with the "venv" module on Python 3:
 
     ```
-    python -m venv mytestenv # Might be "python3" or "py -3.6" depending on your Python installation
+    python -m venv mytestenv # Might be "python3" or "py -3.7" depending on your Python installation
     cd mytestenv
     source bin/activate      # Linux shell (Bash, ZSH, etc.) only
     ./scripts/activate       # PowerShell only
@@ -76,7 +76,7 @@ To run the complete demo, execute `python example.py`
 
 To run each individual demo, point directly to the file. For example (i.e. not complete list):
 
-1. `python manage_ServiceName.py`
+1. `python manage_availability_statuses_operations.py`
 
 If the script starts with `disable_***.py`, it means that it is unavailable now.
 
