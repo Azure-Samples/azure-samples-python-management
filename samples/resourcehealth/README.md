@@ -17,7 +17,7 @@ These code samples will show you how to manage Event Grid using Azure SDK for Py
 This project framework provides examples for the following services:
 
 ### Event Grid
-* [] Using the Azure SDK for Python - Event Grid Management Library [azure-mgmt-resourcehealth](https://pypi.org/project/azure-mgmt-resourcehealth/) for the [Event Grid API](https://docs.microsoft.com/en-us/rest/api/resourcehealth/)
+* [] Using the Azure SDK for Python - Event Grid Management Library [azure-mgmt-resourcehealth](https://pypi.org/project/azure-mgmt-resourcehealth/) for the [Resource Health API](https://docs.microsoft.com/en-us/rest/api/resourcehealth/)
 
 ## Getting Started
 
