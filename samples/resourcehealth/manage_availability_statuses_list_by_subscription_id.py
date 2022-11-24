@@ -1,6 +1,6 @@
 import os
 import json
-from typing import Optional, List
+from typing import List
 
 from azure.identity import DefaultAzureCredential
 from msrest import serialization
