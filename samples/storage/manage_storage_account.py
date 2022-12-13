@@ -64,6 +64,52 @@ def main():
     ).result()
     print("Create storage account:\n{}".format(storage_account))
 
+    # Create storage account for public access and with IP restrictions
+    storage_account = storage_client.storage_accounts.begin_create(
+        GROUP_NAME,
+        STORAGE_ACCOUNT,
+        {
+            "sku": {
+                "name": "Standard_GRS"
+            },
+            # "publicNetworkAccess": "Disable",
+            "publicNetworkAccess": "Enabled",
+            "kind": "StorageV2",
+            "location": "eastus",
+            "encryption": {
+                "services": {
+                    "file": {
+                        "keyType": "Account",
+                        "enabled": "true"
+                    },
+                    "blob": {
+                        "keyType": "Account",
+                        "enabled": "true"
+                    }
+                },
+                "requireInfrastructureEncryption": "false",
+                "keySource": "Microsoft.Storage"
+            },
+            "tags": {
+                "key1": "value1",
+                "key2": "value2"
+            },
+            "networkAcls": {
+                "ipRules": [
+                    {
+                        "ip_address_or_range": "x.y.z.z",
+                        "action": "allow"
+                    }
+                ],
+                "virtual_network_rules": [],
+                "bypass": "AzureServices",
+                "defaultAction": "Allow",
+            },
+            "enable_https_traffic_only": True,
+        }
+    ).result()
+    print("Create storage account:\n{}".format(storage_account))
+
     # Get storage account
     storage_account = storage_client.storage_accounts.get_properties(
         GROUP_NAME,
