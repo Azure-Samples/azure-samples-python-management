@@ -63,6 +63,13 @@ def main():
         }
     ).result()
     print("Create storage account:\n{}".format(storage_account))
+    
+    # Get storage account
+    storage_account = storage_client.storage_accounts.get_properties(
+        GROUP_NAME,
+        STORAGE_ACCOUNT
+    )
+    print("Get storage account:\n{}".format(storage_account))
 
     # Update storage account
     storage_account = storage_client.storage_accounts.update(
