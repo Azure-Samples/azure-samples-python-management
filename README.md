@@ -43,6 +43,7 @@ Samples:
 - [Quota](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/quota)
 - [Redis](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/redis)
 - [Relay](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/relay)
+- [Reservations](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/reservations)
 - [Resource Graph](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/resourcegraph)
 - [Resource Health](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/resourcehealth)
 - [Resources](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/resources)
