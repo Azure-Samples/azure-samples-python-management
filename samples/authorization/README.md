@@ -17,7 +17,7 @@ These code samples will show you how to manage Authorization using Azure SDK for
 This project framework provides examples for the following services:
 
 ### Authorization
-* [] Using the Azure SDK for Python - Authorization Management Library [azure-mgmt-Authorization](https://pypi.org/project/azure-mgmt-authorization/) for the [Authorization API](https://docs.microsoft.com/en-us/rest/api/authorization/)
+* [] Using the Azure SDK for Python - Authorization Management Library [azure-mgmt-authorization](https://pypi.org/project/azure-mgmt-authorization/) for the [Authorization API](https://docs.microsoft.com/en-us/rest/api/authorization/)
 
 ## Getting Started
 
@@ -38,15 +38,13 @@ export SUBSCRIPTION_ID="xxx"
 
 1.  If you don't already have it, [install Python](https://www.python.org/downloads/).
 
-    This sample (and the SDK) is compatible with Python 2.7, 3.3, 3.4, 3.5 and 3.6.
+    This sample (and the SDK) is compatible with Python 3.7+.
 
 2.  General recommendation for Python development is to use a Virtual Environment.
     For more information, see https://docs.python.org/3/tutorial/venv.html
 
-    Install and initialize the virtual environment with the "venv" module on Python 3 (you must install [virtualenv](https://pypi.python.org/pypi/virtualenv) for Python 2.7):
-
     ```
-    python -m venv mytestenv # Might be "python3" or "py -3.6" depending on your Python installation
+    python -m venv mytestenv # Might be "python3" or "py -3.7" depending on your Python installation
     cd mytestenv
     source bin/activate      # Linux shell (Bash, ZSH, etc.) only
     ./scripts/activate       # PowerShell only
