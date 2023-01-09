@@ -10,13 +10,14 @@ def main():
     credentials = DefaultAzureCredential()
     GROUP_NAME = "test"
     workspace_name = "testWorkspace"
+    
     resource_client = ResourceManagementClient(
         credential=DefaultAzureCredential(),
         subscription_id=subscription_id
     )
-    log_analytics_client = LogAnalyticsManagementClient(credentials, subscription_id, )
-    #
+
     loganalytics_client = LogAnalyticsManagementClient(credentials, subscription_id, )
+    
     resource_client.resource_groups.create_or_update(
         GROUP_NAME,
         {"location": "eastus"}
