@@ -1,5 +1,5 @@
 import os
-
+import json
 from azure.identity import DefaultAzureCredential
 from azure.mgmt.resource import ResourceManagementClient
 from azure.mgmt.loganalytics import LogAnalyticsManagementClient
@@ -39,7 +39,7 @@ def main():
         workspace_name='oiautorest6685'
     )
     for item in response:
-        print(item)
+        print(json.dumps(item.serialize()))
 
     loganalytics_client.workspaces.begin_delete(
         GROUP_NAME,
