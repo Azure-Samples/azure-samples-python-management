@@ -25,8 +25,8 @@ def main():
     )
 
     log_analytics_client.workspaces.begin_create_or_update(
-        resource_group_name='zb_test',
-        workspace_name='oiautorest6685',
+        resource_group_name=GROUP_NAME,
+        workspace_name=workspace_name,
         parameters={
             "location": "australiasoutheast",
             "properties": {"retentionInDays": 30, "sku": {"name": "PerGB2018"}},
@@ -35,8 +35,8 @@ def main():
     ).result()
 
     response = log_analytics_client.tables.list_by_workspace(
-        resource_group_name='zb_test',
-        workspace_name='oiautorest6685'
+        resource_group_name=GROUP_NAME,
+        workspace_name=workspace_name
     )
     for item in response:
         print(json.dumps(item.serialize()))
