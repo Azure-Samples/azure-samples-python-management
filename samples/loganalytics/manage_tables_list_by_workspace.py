@@ -16,12 +16,11 @@ def main():
         subscription_id=subscription_id
     )
 
-    loganalytics_client = LogAnalyticsManagementClient(credentials, subscription_id, )
+    loganalytics_client = LogAnalyticsManagementClient(credentials, subscription_id)
     
     resource_client.resource_groups.create_or_update(
         GROUP_NAME,
         {"location": "eastus"}
-
     )
 
     log_analytics_client.workspaces.begin_create_or_update(
