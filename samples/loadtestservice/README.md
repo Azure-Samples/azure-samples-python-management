@@ -4,7 +4,7 @@ languages:
 - python
 products:
 - azure
-description: "These code samples will show you how to manage Consumption using Azure SDK for Python."
+description: "These code samples will show you how to manage Azure Load Testing resources using Azure SDK for Python."
 urlFragment: loadtestservice
 ---
 
@@ -14,7 +14,7 @@ These code samples will show you how to manage Loganalytics using Azure SDK for 
 
 ## Features
 
-This project framework provides examples for Azure Loadtest Service. [Read More about Loadtest Service](https://learn.microsoft.com/azure/load-testing/overview-what-is-azure-load-testing)
+This project framework provides examples for Azure Load Testing. [Read More about Loadtest Service](https://learn.microsoft.com/azure/load-testing/overview-what-is-azure-load-testing)
 ## Getting Started
 
 ### Prerequisites
@@ -48,7 +48,7 @@ export SUBSCRIPTION_ID="xxx"
     ./scripts/activate       # PowerShell only
     ./scripts/activate.bat   # Windows CMD only
     ```
-3. Install Loadtestservice Management Library [azure-mgmt-loadtestservice](https://pypi.org/project/azure-mgmt-loadtestservice/) from pypi in the virtual enviornment created.
+3. Install Azure Load Testing Management Library [azure-mgmt-loadtesting](https://pypi.org/project/azure-mgmt-loadtesting/) from pypi in the virtual enviornment created.
 
 ### Quickstart
 
