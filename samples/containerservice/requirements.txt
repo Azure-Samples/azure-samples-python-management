@@ -1,3 +1,4 @@
+python-dotenv
 azure-identity
-azure-mgmt-resource==15.0.0
-azure-mgmt-containerservice==14.0.0b1
+azure-mgmt-resource
+azure-mgmt-containerservice
