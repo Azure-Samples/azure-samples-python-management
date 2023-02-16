@@ -31,7 +31,7 @@ Samples:
 - [HDInsight](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/hdinsight)
 - [Iot Hub](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/iothub)
 - [KeyVault](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/keyvault)
-- [Loadtest Service](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/loadtestservice)
+- [Loadtesting](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/loadtesting)
 - [Logic](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/logic)
 - [Machine Learning](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/machinelearningservices)
 - [Marketplace Ordering](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/marketplaceordering)

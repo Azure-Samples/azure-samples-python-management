@@ -5,7 +5,7 @@ languages:
 products:
 - azure
 description: "These code samples will show you how to manage Azure Load Testing resources using Azure SDK for Python."
-urlFragment: loadtestservice
+urlFragment: loadtesting
 ---
 
 # Getting started - Managing Consumption using Azure Python SDK
@@ -61,7 +61,7 @@ export SUBSCRIPTION_ID="xxx"
 2.  Install the dependencies using pip.
 
     ```
-    cd azure-samples-python-management/samples/loadtestservice
+    cd azure-samples-python-management/samples/loadtesting
     pip install -r requirements.txt
     ```
 
