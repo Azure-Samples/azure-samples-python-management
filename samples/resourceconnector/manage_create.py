@@ -10,12 +10,13 @@ from azure.mgmt.resource import ResourceManagementClient
 from azure.mgmt.resourceconnector import Appliances
 from azure.mgmt.resourceconnector.models import Appliance
 
-import sys
-import logging
-
-logging.basicConfig(level=logging.DEBUG,
-                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                    stream=sys.stdout)
+# If you want to see the log, please deannotate the following code:
+# import sys
+# import logging
+#
+# logging.basicConfig(level=logging.DEBUG,
+#                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+#                     stream=sys.stdout)
 
 def main():
     sub_id = os.environ.get("SUBSCRIPTION_ID", None)
@@ -38,7 +39,6 @@ def main():
     resource_client.resource_groups.create_or_update(
         group_name,
         {"location": location},
-        headers={"x-ms-client-request-id": "4159a480-c203-11ed-b9e5-6045bdc724a5"}
     )
 
     # - init depended resources -
