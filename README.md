@@ -46,6 +46,7 @@ Samples:
 - [Reservations](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/reservations)
 - [Resource Graph](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/resourcegraph)
 - [Resource Health](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/resourcehealth)
+- [Resource Connector](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/resourceconnector)
 - [Resources](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/resources)
 - [Scheduler](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/scheduler)
 - [Search](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/search)

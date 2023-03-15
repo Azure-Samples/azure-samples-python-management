@@ -1,0 +1,4 @@
+azure-identity
+azure-mgmt-resourceconnector
+azure-mgmt-resource
+
