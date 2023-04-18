@@ -1,4 +1,6 @@
 import os
+import random
+import string
 
 from azure.identity import DefaultAzureCredential
 from azure.mgmt.compute import ComputeManagementClient
@@ -10,6 +12,7 @@ def main():
     SUBSCRIPTION_ID = os.environ.get("SUBSCRIPTION_ID", None)
     GROUP_NAME = "testgroupx"
     VIRTUAL_MACHINE_NAME = "virtualmachinex"
+    INTERFACE_NAME = "interfacex"
 
     your_password = 'A1_' + ''.join(random.choice(string.ascii_lowercase) for i in range(8))
 
