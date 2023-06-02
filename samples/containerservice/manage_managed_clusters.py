@@ -8,7 +8,9 @@ import os
 
 from azure.identity import DefaultAzureCredential
 from azure.mgmt.containerservice import ContainerServiceClient
+from azure.mgmt.containerservice import models
 from azure.mgmt.resource import ResourceManagementClient
+from dotenv import load_dotenv
 
 
 # - other dependence -
@@ -16,9 +18,10 @@ from azure.mgmt.resource import ResourceManagementClient
 
 
 def main():
-    SUBSCRIPTION_ID = os.environ.get("SUBSCRIPTION_ID", None)
-    CLIENT_ID = os.environ.get("CLIENT_ID", None)
-    CLIENT_SECRET = os.environ.get("CLIENT_SECRET", None)
+    load_dotenv()
+    SUBSCRIPTION_ID = os.environ.get("AZURE_SUBSCRIPTION_ID", None)
+    CLIENT_ID = os.environ.get("AZURE_CLIENT_ID", None)
+    CLIENT_SECRET = os.environ.get("AZURE_CLIENT_SECRET", None)
     GROUP_NAME = "testgroupx"
     MANAGED_CLUSTERS = "managed_clustersxxyyzz"
     AZURE_LOCATION = "eastus"
@@ -33,8 +36,6 @@ def main():
         credential=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID
     )
-    # - init depended client -
-    # - end -
 
     # Create resource group
     resource_client.resource_groups.create_or_update(
@@ -42,44 +43,30 @@ def main():
         {"location": AZURE_LOCATION}
     )
 
-    # - init depended resources -
-    # - end -
-
     # Create managed clusters
     managed_clusters = containerservice_client.managed_clusters.begin_create_or_update(
         GROUP_NAME,
         MANAGED_CLUSTERS,
-        {
-            "dns_prefix": "akspythonsdk",
-            "agent_pool_profiles": [
-                {
-                    "name": "aksagent",
-                    "count": 1,
-                    "vm_size": "Standard_DS2_v2",
-                    "max_pods": 110,
-                    "min_count": 1,
-                    "max_count": 100,
-                    "os_type": "Linux",
-                    "type": "VirtualMachineScaleSets",
-                    "enable_auto_scaling": True,
-                    "mode": "System",
-                }
-            ],
-            "service_principal_profile": {
-                "client_id": CLIENT_ID,
-                "secret": CLIENT_SECRET
-            },
-            "location": AZURE_LOCATION
-        }
+        parameters=models.ManagedCluster(
+            dns_prefix="akspythonsdk",
+            agent_pool_profiles=[models.ManagedClusterAgentPoolProfile(
+                name="aksagent", min_count=1, max_count=3, count=2,
+                vm_size="Standard_DS2_v2",
+                max_pods=50, os_type="Linux", type="VirtualMachineScaleSets",
+                enable_auto_scaling=True, mode="System")],
+            service_principal_profile=models.ManagedClusterServicePrincipalProfile(client_id=CLIENT_ID,
+                                                                                   secret=CLIENT_SECRET),
+            location=AZURE_LOCATION
+        ),
     ).result()
-    print("Create managed clusters:\n{}".format(managed_clusters))
+    print("Create managed clusters:\n{}".format(managed_clusters.serialize()))
 
     # Get managed clusters
     managed_clusters = containerservice_client.managed_clusters.get(
         GROUP_NAME,
         MANAGED_CLUSTERS
     )
-    print("Get managed clusters:\n{}".format(managed_clusters))
+    print("Get managed clusters:\n{}".format(managed_clusters.serialize()))
 
     # Update managed clusters
     managed_clusters = containerservice_client.managed_clusters.begin_update_tags(
@@ -92,10 +79,10 @@ def main():
             }
         }
     ).result()
-    print("Update managed clusters:\n{}".format(managed_clusters))
+    print("Update managed clusters:\n{}".format(managed_clusters.serialize()))
 
     # Delete managed clusters
-    managed_clusters = containerservice_client.managed_clusters.begin_delete(
+    containerservice_client.managed_clusters.begin_delete(
         GROUP_NAME,
         MANAGED_CLUSTERS
     ).result()
