@@ -22,6 +22,7 @@ def main():
     CLIENT_OID = os.environ.get("CLIENT_OID", None)
     GROUP_NAME = "testgroupx"
     SERVER_KEY = "server_keyxxyyzz"
+    SERVER_KEY_TYPE = "AzureKeyVault"
     SERVER = "serverxxy"
     VAULT = "vaultxxy"
 
@@ -179,12 +180,23 @@ def main():
         SERVER_KEY,
         {
             # TODO: init resource body
-            "server_key_type": "AzureKeyVault",
+            "server_key_type": SERVER_KEY_TYPE,
             "uri": key.id
         }
     ).result()
     print("Create server key:\n{}".format(server_key))
-
+    
+    # Set encryptrion protector
+    sql_client.encryption_protectors.begin_create_or_update(
+        GROUP_NAME,
+        SERVER,
+        "current",
+        {
+            "server_key_name":SERVER_KEY,
+            "server_key_type":SERVER_KEY_TYPE
+        }
+    )
+    
     # Get server key
     server_key = sql_client.server_keys.get(
         GROUP_NAME,
