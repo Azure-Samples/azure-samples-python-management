@@ -7,7 +7,7 @@
 import os
 from azure.identity import DefaultAzureCredential
 from azure.mgmt.resource import ResourceManagementClient
-from azure.mgmt.resourceconnector import Appliances
+from azure.mgmt.resourceconnector import ResourceConnectorMgmtClient
 from azure.mgmt.resourceconnector.models import Appliance
 
 # If you want to see the log, please deannotate the following code:
@@ -30,7 +30,7 @@ def main():
         credential=DefaultAzureCredential(),
         subscription_id=sub_id
     )
-    client = Appliances(
+    client = ResourceConnectorMgmtClient(
         credential=DefaultAzureCredential(),
         subscription_id=sub_id
     )
@@ -46,9 +46,8 @@ def main():
     result = client.appliances.begin_create_or_update(
         group_name,
         resource_name,
-        Appliance(location=location),
+        Appliance(location=location, identity={"type":"SystemAssigned"},infrastructure_config={"provider":"VMWare"}),
         headers={"x-ms-client-request-id": "4159a480-c203-11ed-b9e5-6045bdc724a6"},
-        params={"api-version": "2022-10-27"}
     ).result()
     print("result of begin_create_or_update: {}".format(result.serialize()))
 
