@@ -48,7 +48,7 @@ def main():
         resource_name,
         Appliance(location=location),
         headers={"x-ms-client-request-id": "4159a480-c203-11ed-b9e5-6045bdc724a6"},
-        params={"api-version": "2021-10-31-preview"}
+        params={"api-version": "2022-10-27"}
     ).result()
     print("result of begin_create_or_update: {}".format(result.serialize()))
 
