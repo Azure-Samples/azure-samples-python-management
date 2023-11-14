@@ -21,7 +21,7 @@ Samples:
 - [Compute](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/compute)
 - [Consumption](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/consumption)
 - [Container Instance](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/containerinstance)
-- [Container Registery](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/containerregistry)
+- [Container Registry](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/containerregistry)
 - [Container Service](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/containerservice)
 - [Cosmos DB](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/cosmosdb)
 - [Data Lake Storage](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/datalakestore)
