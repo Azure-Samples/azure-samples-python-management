@@ -1,4 +1,4 @@
-azure-identity==1.10.0
+azure-identity==1.16.1
 azure-mgmt-resource==21.1.0
 azure-mgmt-recoveryservicesbackup==5.0.0
 azure-mgmt-recoveryservices==2.0.0
