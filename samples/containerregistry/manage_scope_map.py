@@ -27,7 +27,6 @@ def main():
     containerregistry_client = ContainerRegistryManagementClient(
         credential=DefaultAzureCredential(),
         subscription_id=SUBSCRIPTION_ID,
-        api_version="2019-12-01-preview"
     )
 
     # Create resource group
