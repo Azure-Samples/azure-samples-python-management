@@ -45,7 +45,7 @@ def request(client, id):
 def main():
     client = QuotaMgmtClient(
         credential=DefaultAzureCredential(),
-        subscription_id="12884339-875d-4fed-890c-973fc2185649",
+        subscription_id="00000000-0000-0000-0000-000000000000",
     )
 
     data = {
