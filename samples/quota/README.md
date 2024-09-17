@@ -4,13 +4,13 @@ languages:
 - python
 products:
 - azure
-description: "These code samples will show you how to manage Group Quota using Azure SDK for Python."
+description: "These code samples will show you how to manage Quota using Azure SDK for Python."
 urlFragment: quota
 ---
 
-# Getting started - Managing Group Quota using Azure Python SDK
+# Getting started - Managing Quota using Azure Python SDK
 
-These code samples will show you how to manage Group Quota using Azure SDK for Python.
+These code samples will show you how to manage Quota using Azure SDK for Python.
 
 ## Features
 
