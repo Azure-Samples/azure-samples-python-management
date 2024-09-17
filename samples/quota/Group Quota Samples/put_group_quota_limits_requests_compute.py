@@ -26,13 +26,13 @@ import time
     https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal
 """
 
-def cut_url(string):
-    # Use regex to find the portion after the last slash and before the question
+def cut_id(string):
+    # regex finds the portion after the last slash and before the question
     match = re.search(r'/([^/?]+)\?', string)
     return match.group(1)
 
-def cut_full_url(string):
-    # Use regex to remove everything after and including the first '&' symbol
+def cut_url(string):
+    # regex removes everything after and including the first '&' symbol
     return re.sub(r'&.*', '', string)
 
 def request(client, id):
@@ -68,8 +68,8 @@ def main():
     )
     
     filtered_properties = response._polling_method._initial_response.http_response.headers._store['location']
-    id = cut_url(filtered_properties[1])
-    url = cut_full_url(filtered_properties[1])
+    id = cut_id(filtered_properties[1])
+    url = cut_url(filtered_properties[1])
     
     response = request(client,id)
 
