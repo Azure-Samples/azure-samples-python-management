@@ -60,15 +60,23 @@ export AZURE_CLIENT_SECRET="xxx"
 
 ## Run
 
-To run the script, execute `python example.py`
+To run the script, execute `python sample.py`
 
 To run each individual demo, point directly to the file. For example (i.e. not complete list):
 
-1. `python put_group_quota_limits_requests_compute.py`
+- `python sample.py`
+
+Includes creating Group Quota Functions, assigning group quota limit, setting subscription quota allocation and cleanup
+
+### Extra Scripts
+
+Additional scripts that include run similar to the existing SDK but using a polling method with a timeout
+
+- `python put_group_quota_limits_requests_compute.py`
 
 Allocate Quota to Group
 
-1. `python put_subscription_quota_allocation_request_compute.py`
+- `python put_subscription_quota_allocation_request_compute.py`
 
 Allocate Quota to a Subscription in Group
 
