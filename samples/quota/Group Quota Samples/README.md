@@ -17,9 +17,9 @@ These code samples will show you how to manage Group Quota using Azure SDK for P
 This project framework provides examples for the following services:
 
 ### Quota
-- Using the Azure SDK for Python - Quota Management Library [azure-mgmt-quota](https://pypi.org/project/azure-mgmt-quota/)
+- Using the Azure SDK for Python - Quota Management Library [azure-mgmt-quota 2.0.0b1](https://pypi.org/project/azure-mgmt-quota/2.0.0b1/)
 
-`pip install azure-mgmt-quota`
+`pip install azure-mgmt-quota==2.0.0b1`
 
 ## Getting Started
 
@@ -55,7 +55,7 @@ export AZURE_CLIENT_SECRET="xxx"
 
     ```
     pip install azure-identity
-    pip install azure-mgmt-quota
+    pip install azure-mgmt-quota==2.0.0b1
     ```
 
 ## Run
