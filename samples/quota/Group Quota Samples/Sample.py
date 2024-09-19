@@ -171,6 +171,13 @@ def getGroupQuotaLimit(client, group_quota_name, management_group_id):
     )
     print(response)
 
+def getSubscriptionQuotaAllocation(client, group_quota_name, management_group_id):
+    response = client.group_quota_subscriptions.get(
+        management_group_id=management_group_id,
+        group_quota_name=group_quota_name,
+    )
+    print(response)
+
 def main():
     client = QuotaMgmtClient(
         credential=DefaultAzureCredential(),
@@ -208,6 +215,7 @@ def main():
 
     #SubscriptionQuotaAllocation
     createSubscriptionAllocationRequest(client, group_quota_name, management_group_id, resource_name, data)
+    getSubscriptionQuotaAllocation(client, group_quota_name, management_group_id)
     
     #Cleanup
     deleteSubscription(client, group_quota_name, management_group_id)
