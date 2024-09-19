@@ -164,6 +164,13 @@ def deleteGroupQuota(client, group_quota_name, management_group_id):
     ).result()
     print(response)
 
+def getGroupQuotaLimit(client, group_quota_name, management_group_id):
+    response = client.group_quotas.get(
+        management_group_id=management_group_id,
+        group_quota_name=group_quota_name,
+    )
+    print(response)
+
 def main():
     client = QuotaMgmtClient(
         credential=DefaultAzureCredential(),
@@ -197,6 +204,7 @@ def main():
 
     #GroupQuotaLimit
     createGroupQuotaLimitRequest(client, group_quota_name, management_group_id, resource_name, data)
+    getGroupQuotaLimit(client, group_quota_name, management_group_id)
 
     #SubscriptionQuotaAllocation
     createSubscriptionAllocationRequest(client, group_quota_name, management_group_id, resource_name, data)
