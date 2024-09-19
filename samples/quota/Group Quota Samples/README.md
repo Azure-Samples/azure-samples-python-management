@@ -68,18 +68,6 @@ To run each individual demo, point directly to the file. For example (i.e. not c
 
 Includes creating Group Quota Functions, assigning group quota limit, setting subscription quota allocation and cleanup
 
-### Extra Scripts
-
-Additional scripts that include run similar to the existing SDK but using a polling method with a timeout
-
-- `python put_group_quota_limits_requests_compute.py`
-
-Allocate Quota to Group
-
-- `python put_subscription_quota_allocation_request_compute.py`
-
-Allocate Quota to a Subscription in Group
-
 ## Resources
 
 Link to full list of SDK scripts
