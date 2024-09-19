@@ -103,6 +103,7 @@ def createGroupQuotaLimitRequest(client, group_quota_name, management_group_id, 
     
     response = requestGroup(client, id, management_group_id, group_quota_name)
 
+    # Polling is set to every 15 seconds, with a timeout of 240 seconds (4 minutes)
     timeoutLimit = 240
     timeoutSleep = 15
     while timeoutLimit > 0 and response.properties.provisioning_state in ('Accepted', 'InProgress'):
@@ -138,6 +139,7 @@ def createSubscriptionAllocationRequest(client, group_quota_name, management_gro
     
     response = requestSubscription(client,id, management_group_id, group_quota_name)
 
+    # Polling is set to every 15 seconds, with a timeout of 240 seconds (4 minutes)
     timeoutLimit = 240
     timeoutSleep = 15
     while timeoutLimit > 0 and response.properties.provisioning_state in ('Accepted', 'InProgress'):
@@ -184,6 +186,17 @@ def main():
         subscription_id="00000000-0000-0000-0000-000000000000",
     )
     
+    '''
+    Please replace the default example values with your own actual values for the following variables:
+    subscription_id - with your subscription id
+    management_group_id - with your desired created management group id
+    group_quota_name - with your desired created group quota name
+    resource_name - with your desired resource name
+        Example resource_name Values: "standarddv4family", "standardav2family", "standardfsv2family" etc.
+    limit - with your desired quota limit value
+    location - with your desired location
+        Example location Values: "westus", "eastus", "centralus" etc.
+    '''
     management_group_id="[ManagmentGroup]"
     group_quota_name="[GroupQuotaName]"
     resource_name="[ResourceName]"
