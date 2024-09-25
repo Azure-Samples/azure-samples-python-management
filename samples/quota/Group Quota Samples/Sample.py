@@ -167,18 +167,29 @@ def deleteGroupQuota(client, group_quota_name, management_group_id):
     print(response)
 
 def getGroupQuotaLimit(client, group_quota_name, management_group_id):
-    response = client.group_quotas.get(
+    response = client.group_quota_limits.get(
         management_group_id=management_group_id,
         group_quota_name=group_quota_name,
+        resource_provider_name="Microsoft.Compute",
+        resource_name="cores",
+        filter="location eq 'eastus'"
     )
     print(response)
+    if(response.properties is not None):
+        print("properties avaialble_limit: ", response.properties.available_limit)
+        print("properties limit: ", response.properties.limit)
 
 def getSubscriptionQuotaAllocation(client, group_quota_name, management_group_id):
-    response = client.group_quota_subscriptions.get(
+    response = client.group_quota_subscription_allocation.get(
         management_group_id=management_group_id,
         group_quota_name=group_quota_name,
+        resource_name="cores",
+        filter="location eq 'eastus'"
     )
     print(response)
+    if(response.properties is not None):
+        print("properties limit: ", response.properties.limit)
+        print("shareable quota: ", response.properties.shareable_quota)
 
 def main():
     client = QuotaMgmtClient(
