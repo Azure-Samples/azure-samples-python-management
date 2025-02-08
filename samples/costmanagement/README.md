@@ -31,7 +31,7 @@ For example, in Linux-based OS, you can do
 export AZURE_TENANT_ID="xxx"
 export AZURE_CLIENT_ID="xxx"
 export AZURE_CLIENT_SECRET="xxx"
-export SUBSCRIPTION_ID="xxx"
+export AZURE_SUBSCRIPTION_ID="xxx"
 ```
 
 ### Installation
