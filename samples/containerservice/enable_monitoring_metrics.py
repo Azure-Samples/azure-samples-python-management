@@ -105,7 +105,7 @@ def main():
                 "enabled": True,
                 "clusterName": MANAGED_CLUSTERS_NAME,
                 "interval": "PT1M",
-                # Recommendated rules template
+                # Recommended rules template
                 "rules": [
                     {"record": "instance:node_num_cpu:sum", "expression": "count without (cpu, mode) (  node_cpu_seconds_total{job=\"node\",mode=\"idle\"})"}, 
                     {"record": "instance:node_cpu_utilisation:rate5m", "expression": "1 - avg without (cpu) (  sum without (mode) (rate(node_cpu_seconds_total{job=\"node\", mode=~\"idle|iowait|steal\"}[5m])))"}, 
@@ -134,7 +134,7 @@ def main():
                 "enabled": True,
                 "clusterName": MANAGED_CLUSTERS_NAME,
                 "interval": "PT1M",
-                # Recommendated rules template
+                # Recommended rules template
                 "rules": [
                     {"record": "node_namespace_pod_container:container_cpu_usage_seconds_total:sum_irate", "expression": "sum by (cluster, namespace, pod, container) (  irate(container_cpu_usage_seconds_total{job=\"cadvisor\", image!=\"\"}[5m])) * on (cluster, namespace, pod) group_left(node) topk by (cluster, namespace, pod) (  1, max by(cluster, namespace, pod, node) (kube_pod_info{node!=\"\"}))"}, 
                     {"record": "node_namespace_pod_container:container_memory_working_set_bytes", "expression": "container_memory_working_set_bytes{job=\"cadvisor\", image!=\"\"}* on (namespace, pod) group_left(node) topk by(namespace, pod) (1,  max by(namespace, pod, node) (kube_pod_info{node!=\"\"}))"}, 
