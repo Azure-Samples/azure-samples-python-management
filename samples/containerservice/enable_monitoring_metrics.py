@@ -17,7 +17,7 @@ from azure.mgmt.containerservice import ContainerServiceClient
 from azure.mgmt.monitor import MonitorManagementClient
 from azure.mgmt.alertsmanagement import AlertsManagementClient
 from dotenv import load_dotenv
-import os, json
+import os
 
 
 def main():
@@ -106,28 +106,26 @@ def main():
     )
 
     # Get rule templates
-    def get_recording_rules_template(i: int) -> list:
-        response = alert_management_client._send_request(
-            HttpRequest(
-                "GET",
-                f"{azure_monitor_workspace_id}/providers/microsoft.alertsmanagement/alertRuleRecommendations?api-version=2023-01-01-preview",
-            )
+    response = alert_management_client._send_request(
+        HttpRequest(
+            "GET",
+            f"{azure_monitor_workspace_id}/providers/microsoft.alertsmanagement/alertRuleRecommendations?api-version=2023-01-01-preview",
         )
-        data = json.loads(response.text())
-        filtered_templates = [
-            template
-            for template in data.get("value", [])
-            if template.get("properties", {}).get("alertRuleType", "").lower()
-            == "microsoft.alertsmanagement/prometheusrulegroups"
-            and isinstance(template.get("properties", {}).get("rulesArmTemplate", {}).get("resources"), list)
-            and all(
-                isinstance(rule, dict) and "record" in rule and "expression" in rule
-                for resource in template["properties"]["rulesArmTemplate"]["resources"]
-                if resource.get("type", "").lower() == "microsoft.alertsmanagement/prometheusrulegroups"
-                for rule in resource.get("properties", {}).get("rules", [])
-            )
-        ]
-        return filtered_templates[i]["properties"]["rulesArmTemplate"]["resources"][0]["properties"]["rules"]
+    )
+    data = response.json()
+    filtered_templates = [
+        template
+        for template in data.get("value", [])
+        if template.get("properties", {}).get("alertRuleType", "").lower()
+        == "microsoft.alertsmanagement/prometheusrulegroups"
+        and isinstance(template.get("properties", {}).get("rulesArmTemplate", {}).get("resources"), list)
+        and all(
+            isinstance(rule, dict) and "record" in rule and "expression" in rule
+            for resource in template["properties"]["rulesArmTemplate"]["resources"]
+            if resource.get("type", "").lower() == "microsoft.alertsmanagement/prometheusrulegroups"
+            for rule in resource.get("properties", {}).get("rules", [])
+        )
+    ]
 
     # Create prometheus rule groups
     alert_management_client.prometheus_rule_groups.create_or_update(
@@ -141,7 +139,7 @@ def main():
                 "enabled": True,
                 "clusterName": MANAGED_CLUSTERS_NAME,
                 "interval": "PT1M",
-                "rules": get_recording_rules_template(0),
+                "rules": filtered_templates[0]["properties"]["rulesArmTemplate"]["resources"][0]["properties"]["rules"],
             },
         },
     )
@@ -157,7 +155,7 @@ def main():
                 "enabled": True,
                 "clusterName": MANAGED_CLUSTERS_NAME,
                 "interval": "PT1M",
-                "rules": get_recording_rules_template(1),
+                "rules": filtered_templates[1]["properties"]["rulesArmTemplate"]["resources"][0]["properties"]["rules"],
             },
         },
     )
