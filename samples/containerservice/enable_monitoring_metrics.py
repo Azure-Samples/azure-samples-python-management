@@ -6,10 +6,26 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-# - other dependence -
-# azure-mgmt-monitor==6.0.2
-# azure-mgmt-alertsmanagement==2.0.0b2
-# - end -
+"""
+FILE: enable_monitoring_metrics.py
+DESCRIPTION:
+    This sample demonstrate how to monitoring metrics for a managaed cluster,
+    producing the same functionality as `az aks update --enable-azure-monitor-metrics -n -g`.
+Prerequisites:
+    You must have an Azure subscription and an AKS cluster to run this sample.
+USAGE:
+    python enable_monitoring_metrics.py
+    Set the environment variables with your own values before running the sample:
+    1) AZURE_SUBSCRIPTION_ID - the subscription id
+    2) RESOURCE_GROUP_NAME - the resource group of the resources
+    3) AZURE_LOCATION - the location of the resources
+    4) AKS_CLUSTER_NAME - the name of the managed cluster you have created
+    5) AKS_CLUSTER_ID - the resource id of the managed cluster you have created
+    6) MONITOR_WORKSPACE_NAME - the name of the azure monitor workspace
+OTHER DEPENDENCE:
+    azure-mgmt-monitor==6.0.2
+    azure-mgmt-alertsmanagement==2.0.0b2
+"""
 
 from azure.identity import DefaultAzureCredential
 from azure.core.rest import HttpRequest
@@ -25,8 +41,8 @@ def main():
     AZURE_SUBSCRIPTION_ID = os.environ.get("AZURE_SUBSCRIPTION_ID", None)
     RESOURCE_GROUP_NAME = os.environ.get("RESOURCE_GROUP_NAME", None)
     AZURE_LOCATION = os.environ.get("AZURE_LOCATION", None)
-    MANAGED_CLUSTERS_NAME = os.environ.get("MANAGED_CLUSTERS_NAME", None)
-    MANAGED_CLUSTERS_ID = os.environ.get("MANAGED_CLUSTERS_ID", None)
+    AKS_CLUSTER_NAME = os.environ.get("AKS_CLUSTER_NAME", None)
+    AKS_CLUSTER_ID = os.environ.get("AKS_CLUSTER_ID", None)
     MONITOR_WORKSPACE_NAME = os.environ.get("MONITOR_WORKSPACE_NAME", None)
 
     # Create client
@@ -55,7 +71,7 @@ def main():
     # Create data collection endpoint
     data_collection_endpoint_id = monitor_client.data_collection_endpoints.create(
         resource_group_name=RESOURCE_GROUP_NAME,
-        data_collection_endpoint_name=f"MSProm-{AZURE_LOCATION}-{MANAGED_CLUSTERS_NAME}",
+        data_collection_endpoint_name=f"MSProm-{AZURE_LOCATION}-{AKS_CLUSTER_NAME}",
         body={
             "location": AZURE_LOCATION,
             "kind": "Linux",
@@ -66,7 +82,7 @@ def main():
     # Create data collection rule
     data_collection_rule_id = monitor_client.data_collection_rules.create(
         resource_group_name=RESOURCE_GROUP_NAME,
-        data_collection_rule_name=f"MSProm-{AZURE_LOCATION}-{MANAGED_CLUSTERS_NAME}",
+        data_collection_rule_name=f"MSProm-{AZURE_LOCATION}-{AKS_CLUSTER_NAME}",
         body={
             "location": AZURE_LOCATION,
             "kind": "Linux",
@@ -94,7 +110,7 @@ def main():
 
     # Create data collection rule association
     monitor_client.data_collection_rule_associations.create(
-        resource_uri=MANAGED_CLUSTERS_ID,
+        resource_uri=AKS_CLUSTER_ID,
         association_name="ContainerInsightsMetricsExtension",
         body={
             "location": AZURE_LOCATION,
@@ -105,7 +121,8 @@ def main():
         },
     )
 
-    # Get rule templates
+    # Get rule templates, logic referred from CLI: 
+    # https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/acs/azuremonitormetrics/recordingrules/create.py
     response = alert_management_client._send_request(
         HttpRequest(
             "GET",
@@ -130,14 +147,14 @@ def main():
     # Create prometheus rule groups
     alert_management_client.prometheus_rule_groups.create_or_update(
         resource_group_name=RESOURCE_GROUP_NAME,
-        rule_group_name=f"NodeRecordingRulesRuleGroup-{MANAGED_CLUSTERS_NAME}",
+        rule_group_name=f"NodeRecordingRulesRuleGroup-{AKS_CLUSTER_NAME}",
         parameters={
             "location": AZURE_LOCATION,
             "type": "Microsoft.AlertsManagement/prometheusRuleGroups",
             "properties": {
-                "scopes": [azure_monitor_workspace_id, MANAGED_CLUSTERS_ID],
+                "scopes": [azure_monitor_workspace_id, AKS_CLUSTER_ID],
                 "enabled": True,
-                "clusterName": MANAGED_CLUSTERS_NAME,
+                "clusterName": AKS_CLUSTER_NAME,
                 "interval": "PT1M",
                 "rules": filtered_templates[0]["properties"]["rulesArmTemplate"]["resources"][0]["properties"]["rules"],
             },
@@ -146,14 +163,14 @@ def main():
 
     alert_management_client.prometheus_rule_groups.create_or_update(
         resource_group_name=RESOURCE_GROUP_NAME,
-        rule_group_name=f"KubernetesRecordingRulesRuleGroup-{MANAGED_CLUSTERS_NAME}",
+        rule_group_name=f"KubernetesRecordingRulesRuleGroup-{AKS_CLUSTER_NAME}",
         parameters={
             "location": AZURE_LOCATION,
             "type": "Microsoft.AlertsManagement/prometheusRuleGroups",
             "properties": {
-                "scopes": [azure_monitor_workspace_id, MANAGED_CLUSTERS_ID],
+                "scopes": [azure_monitor_workspace_id, AKS_CLUSTER_ID],
                 "enabled": True,
-                "clusterName": MANAGED_CLUSTERS_NAME,
+                "clusterName": AKS_CLUSTER_NAME,
                 "interval": "PT1M",
                 "rules": filtered_templates[1]["properties"]["rulesArmTemplate"]["resources"][0]["properties"]["rules"],
             },
@@ -163,7 +180,7 @@ def main():
     # Update Managed Cluster
     managed_cluster = containerservice_client.managed_clusters.begin_create_or_update(
         resource_group_name=RESOURCE_GROUP_NAME,
-        resource_name=MANAGED_CLUSTERS_NAME,
+        resource_name=AKS_CLUSTER_NAME,
         parameters={"location": AZURE_LOCATION, "azureMonitorProfile": {"metrics": {"enabled": True}}},
     ).result()
 
