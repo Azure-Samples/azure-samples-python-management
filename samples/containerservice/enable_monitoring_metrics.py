@@ -124,7 +124,7 @@ def main():
         },
     )
 
-    # Get rule templates, logic referred from CLI: 
+    # Get rule templates, logic referred from CLI:
     # https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/acs/azuremonitormetrics/recordingrules/create.py
     response = alert_management_client._send_request(
         HttpRequest(
