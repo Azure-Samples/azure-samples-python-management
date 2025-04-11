@@ -10,7 +10,7 @@
 FILE: enable_monitoring_metrics.py
 DESCRIPTION:
     This sample demonstrate how to monitoring metrics for a managaed cluster,
-    producing the same functionality as `az aks update --enable-azure-monitor-metrics -n -g`.
+    producing the same functionality as `az aks update --enable-azure-monitor-metrics -n -g --azure-monitor-workspace-resource-id`.
 Prerequisites:
     You must have an Azure subscription and an AKS cluster to run this sample.
 USAGE:
@@ -21,7 +21,7 @@ USAGE:
     3) AZURE_LOCATION - the location of the resources
     4) AKS_CLUSTER_NAME - the name of the managed cluster you have created
     5) AKS_CLUSTER_ID - the resource id of the managed cluster you have created
-    6) MONITOR_WORKSPACE_NAME - the name of the azure monitor workspace
+    6) MONITOR_WORKSPACE_ID - the resource id of the azure monitor workspace you have created
 OTHER DEPENDENCE:
     azure-mgmt-monitor==6.0.2
     azure-mgmt-alertsmanagement==2.0.0b2
@@ -43,7 +43,7 @@ def main():
     AZURE_LOCATION = os.environ.get("AZURE_LOCATION", None)
     AKS_CLUSTER_NAME = os.environ.get("AKS_CLUSTER_NAME", None)
     AKS_CLUSTER_ID = os.environ.get("AKS_CLUSTER_ID", None)
-    MONITOR_WORKSPACE_NAME = os.environ.get("MONITOR_WORKSPACE_NAME", None)
+    MONITOR_WORKSPACE_ID = os.environ.get("MONITOR_WORKSPACE_ID", None)
 
     # Create client
     containerservice_client = ContainerServiceClient(
@@ -59,14 +59,17 @@ def main():
         credential=DefaultAzureCredential(),
     )
 
-    # Create azure monitor workspace
-    azure_monitor_workspace_id = monitor_client.azure_monitor_workspaces.create(
-        resource_group_name=RESOURCE_GROUP_NAME,
-        azure_monitor_workspace_name=MONITOR_WORKSPACE_NAME,
-        azure_monitor_workspace_properties={
-            "location": AZURE_LOCATION,
-        },
-    ).id
+    # Create azure monitor workspace if not exists
+    if MONITOR_WORKSPACE_ID:
+        azure_monitor_workspace_id = MONITOR_WORKSPACE_ID
+    else:
+        azure_monitor_workspace_id = monitor_client.azure_monitor_workspaces.create(
+            resource_group_name=RESOURCE_GROUP_NAME,
+            azure_monitor_workspace_name=f"DefaultAzureMonitorWorkspace-{AZURE_LOCATION}",
+            azure_monitor_workspace_properties={
+                "location": AZURE_LOCATION,
+            },
+        ).id
 
     # Create data collection endpoint
     data_collection_endpoint_id = monitor_client.data_collection_endpoints.create(
